@@ -22,7 +22,40 @@
 // gsap.to(".s4", {x: 0, duration: 0.5,delay:2});
 
 // gsap.to(".wholecube", {rotate:3600/4, duration: 2, delay:2.5, ease:"power1.inOut"});
-
+(function() {
+    const blurProperty = gsap.utils.checkPrefix("filter"),
+          blurExp = /blur\((.+)?px\)/,
+          getBlurMatch = target => (gsap.getProperty(target, blurProperty) || "").match(blurExp) || [];
+  
+    gsap.registerPlugin({
+      name: "blur",
+      get(target) {
+        return +(getBlurMatch(target)[1]) || 0;
+      },
+      init(target, endValue) {
+        let data = this,
+            filter = gsap.getProperty(target, blurProperty),
+            endBlur = "blur(" + endValue + "px)",
+            match = getBlurMatch(target)[0],
+            index;
+        if (filter === "none") {
+          filter = "";
+        }
+        if (match) {
+          index = filter.indexOf(match);
+          endValue = filter.substr(0, index) + endBlur + filter.substr(index + match.length);
+        } else {
+          endValue = filter + endBlur;
+          filter += filter ? " blur(0px)" : "blur(0px)";
+        }
+        data.target = target; 
+        data.interp = gsap.utils.interpolate(filter, endValue); 
+      },
+      render(progress, data) {
+        data.target.style[blurProperty] = data.interp(progress);
+      }
+    });
+  })();
 
 function s1() {
     let tl = gsap.timeline({
@@ -65,10 +98,34 @@ function s1() {
         repeat: -1,
         repeatDelay: 1,
         defaults: { // children inherit these defaults
+            ease: "power1.inOut"
+        },
+    });
+    tl.to(".wholecube", {rotate: 90, duration: 0.5,delay:0.5}).to(".wholecube", {rotate: 1260, duration: 2, delay: 0.5});
+    return tl;
+  }
+
+  function cube2() {
+    let tl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 1,
+        defaults: { // children inherit these defaults
             ease: "power1.inOut" 
         },
     });
-    tl.to(".wholecube", {rotate: 90, duration: 0.5,delay:0.5}).to(".wholecube", {rotate: 3600/4, duration: 2, delay: 0.5});
+    tl.to(".wholecube", {scale: 0.5, duration: 1, delay:1.5}).to(".wholecube", {scale: 1, duration: 1});
+    return tl;
+  }
+
+  function colors() {
+    let tl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 1,
+        defaults: { // children inherit these defaults
+            ease: "power1.in" 
+        },
+    });
+    tl.to([".side",".corner"], {backgroundColor: '#00E882', duration: 2, delay:1.5}).to([".side",".corner"], {backgroundColor: '#FFFFFF', duration: 2, delay:2.5});
     return tl;
   }
 
@@ -77,6 +134,9 @@ s2()
 s3()
 s4()
 cube()
+cube2()
+colors()
+
 
 // function s2() {
 //     let tl = gsap.timeline();
