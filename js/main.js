@@ -59,7 +59,7 @@
 
 function s1() {
     let tl = gsap.timeline({
-        repeatDelay: 2,
+        repeatDelay: 2.25,
         repeat: -1,
     });
     tl.to(".s1", {y: -40, duration: 0.5}).to(".s1", {y: 0, duration: 0.5,delay:0.5});
@@ -68,7 +68,7 @@ function s1() {
 
   function s2() {
     let tl = gsap.timeline({
-        repeatDelay: 2,
+        repeatDelay: 2.25,
         repeat: -1,
     });
     tl.to(".s2", {x: 40, duration: 0.5}).to(".s2", {x: 0, duration: 0.5, delay:0.5});
@@ -77,7 +77,7 @@ function s1() {
 
   function s3() {
     let tl = gsap.timeline({
-        repeatDelay: 2,
+        repeatDelay: 2.25,
         repeat: -1,
     });
     tl.to(".s3", {y: 40, duration: 0.5}).to(".s3", {y: 0, duration: 0.5, delay:0.5});
@@ -86,7 +86,7 @@ function s1() {
 
   function s4() {
     let tl = gsap.timeline({
-        repeatDelay: 2,
+        repeatDelay: 2.25,
         repeat: -1,
     });
     tl.to(".s4", {x: -40, duration: 0.5}).to(".s4", {x: 0, duration: 0.5, delay:0.5});
@@ -96,45 +96,42 @@ function s1() {
   function cube() {
     let tl = gsap.timeline({
         repeat: -1,
-        repeatDelay: 0,
+        repeatDelay: 0.25,
         defaults: { // children inherit these defaults
             ease: "back.inOut"
         },
     });
-    tl.to(".wholecube", {rotate: 90, duration: 0.5,delay:0.5}).to(".wholecube", {rotate: 540, duration: 2, delay: 0.5});
+    tl.to(".wholecube", {rotate: 90, duration: 0.5,delay:0.5,}).to(".wholecube", {rotate: 540, duration: 2, delay: 0.5});
     return tl;
   }
 
   function cube2() {
     let tl = gsap.timeline({
         repeat: -1,
-        repeatDelay: 0,
-        defaults: { // children inherit these defaults
-            ease: "power1.in" 
-        },
+        repeatDelay: 0.25,
     });
-    tl.to(".wholecube", {scale: 0.8, duration: 1, delay:1.5}).to(".wholecube", {scale: 1, duration: 1});
+    tl.to(".wholecube", {scale: 0.8, duration: 1, delay:1.5, ease:"power1.in"}).to(".wholecube", {scale: 1, duration: 1,ease:"power1.out"});
     return tl;
   }
 
-  function colors() {
-    let tl = gsap.timeline({
-        repeat: -1,
-        repeatDelay: 0,
-        defaults: { // children inherit these defaults
-            ease: "power1.in" 
-        },
-    });
-    tl.to([".side",".corner"], {backgroundColor: '#5DCCEF', duration: 2, delay:1.5})
-      .to([".side",".corner"], {backgroundColor: '#5D7DEF', duration: 2, delay:2.5})
-      .to([".side",".corner"], {backgroundColor: '#B85DEF', duration: 2, delay:2.5})
-      .to([".side",".corner"], {backgroundColor: '#EF5DA8', duration: 2, delay:2.5})
-      .to([".side",".corner"], {backgroundColor: '#EF775D', duration: 2, delay:2.5})
-      .to([".side",".corner"], {backgroundColor: '#EFC65D', duration: 2, delay:2.5})
-      .to([".side",".corner"], {backgroundColor: '#AFEF5D', duration: 2, delay:2.5})
-      .to([".side",".corner"], {backgroundColor: '#00E882', duration: 2, delay:2.5});
-    return tl;
-  }
+//   function colors() {
+//     let tl = gsap.timeline({
+//         repeat: -1,
+//         repeatDelay: 0,
+//         defaults: { // children inherit these defaults
+//             ease: "power1.in" 
+//         },
+//     });
+//     tl.to([".side",".corner"], {backgroundColor: '#5DCCEF', duration: 2, delay:1.5})
+//       .to([".side",".corner"], {backgroundColor: '#5D7DEF', duration: 2, delay:2.5})
+//       .to([".side",".corner"], {backgroundColor: '#B85DEF', duration: 2, delay:2.5})
+//       .to([".side",".corner"], {backgroundColor: '#EF5DA8', duration: 2, delay:2.5})
+//       .to([".side",".corner"], {backgroundColor: '#EF775D', duration: 2, delay:2.5})
+//       .to([".side",".corner"], {backgroundColor: '#EFC65D', duration: 2, delay:2.5})
+//       .to([".side",".corner"], {backgroundColor: '#AFEF5D', duration: 2, delay:2.5})
+//       .to([".side",".corner"], {backgroundColor: '#00E882', duration: 2, delay:2.5});
+//     return tl;
+//   }
 
 //   function midcube() {
 //     let tl = gsap.timeline({
