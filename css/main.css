@@ -18,21 +18,17 @@ html {
   line-height: 1.4;
 }
 
-/* .logo-container{
+/* .midcube{
+  background-color: #222222;
   position: absolute;
-  height: 300px;
-  width:  100%;
-  top: 20%;
+  height: 80px;
+  width: 80px;
+  top: 60px;
+  left: 60px;
 } */
 
-.logo{
-  position:absolute;
-  left:50%;
-  top: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 .wholecube{
+  zoom: 1;
   width: 200px;
   height: 200px;
   position: absolute;
@@ -41,16 +37,16 @@ html {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* 00E882 */
+
 .corner{
-  background-color: #FFF;
+  background-color: #00E882;
   position: absolute;
   height: 20px;
   width: 20px;
 }
 
 .side{
-  background-color: #FFF;
+  background-color: #00E882;
   position: absolute;
 }
 
