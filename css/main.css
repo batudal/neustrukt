@@ -12,7 +12,7 @@
    ========================================================================== */
 
 html {
-  background-color: #FFFFFF;
+  background-color: #111111;
   /* font-size: 1em;
   line-height: 1.4; */
 }
@@ -27,7 +27,7 @@ html {
   width: 1000px;
   left: 50%;
   top: 50%;
-  background-color: #fff;
+  background-color: #202020;
   box-shadow: 2px 2px 25px 15px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   -ms-transform: translate(-50%, -50%);
@@ -46,7 +46,7 @@ h1{
   font-family: Inter;
   font-weight: 700;
   font-size: 60px;
-  color: #000000;
+  color: #FFF;
   margin:0;
 }
 
@@ -75,14 +75,14 @@ h1 span{
 }
 
 .corner{
-  background-color: #222222;
+  background-color: #0BBC6C;
   position: absolute;
   height: 20px;
   width: 20px;
 }
 
 .side{
-  background-color: #222222;
+  background-color: #333333;
   position: absolute;
 }
 
