@@ -5,10 +5,26 @@
 //     repeatRefresh: true, // invalidates on each repeat
 //     yoyo: true, // if true > A-B-B-A, if false > A-B-A-B
 //   });
-
 // tl.to(".s1", {duration: 0.5, y: -40}).to(".s2", {duration: 0.5, x: 40}).to(".s3", {duration: 0.5, y: 40}).to(".s4", {duration: 0.5, x: -40})
 
+gsap.registerPlugin(TextPlugin);
 
+
+function mytext() {
+  let tl = gsap.timeline({
+    repeat: -1,
+  });
+  tl.to("h1 span", {text: "", duration: 1, delay:1})
+  .to("h1 span", {text: "Scalable", duration: 1, delay:1})
+  .to("h1 span", {text: "", duration: 1, delay:1})
+  .to("h1 span", {text: "Sustainable", duration: 1, delay:1})
+  .to("h1 span", {text: "", duration: 1, delay:1})
+  .to("h1 span", {text: "Accessible", duration: 1, delay:1})
+  .to("h1 span", {text: "", duration: 1, delay:1})
+  .to("h1 span", {text: "Modular", duration: 1, delay:1});
+  return tl;
+};
+mytext();
 // gsap.to(".s1", {y: -40, duration: 0.5,delay:1});
 // gsap.to(".s2", {x: 40, duration: 0.5,delay:1});
 // gsap.to(".s3", {y: 40, duration: 0.5,delay:1});

@@ -12,10 +12,46 @@
    ========================================================================== */
 
 html {
-  color: #222;
-  background-color: #222222;
-  font-size: 1em;
-  line-height: 1.4;
+  background-color: #FFFFFF;
+  /* font-size: 1em;
+  line-height: 1.4; */
+}
+/* 
+.mytext{
+
+} */
+
+.alldivs{
+  position: absolute;
+  height: 500px;
+  width: 1000px;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  box-shadow: 2px 2px 25px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.t1{
+  position: absolute;
+  width: 437px;
+  height: 207px;
+  left: 380px;
+  top: 146px;
+}
+
+h1{
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 60px;
+  color: #000000;
+  margin:0;
+}
+
+h1 span{
+  color: #0BBC6C;
 }
 
 /* .midcube{
@@ -28,25 +64,25 @@ html {
 } */
 
 .wholecube{
-  zoom: 1;
+  zoom: 0.75;
   width: 200px;
   height: 200px;
   position: absolute;
-  left: 50%;
+  left: 280px;
   top: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
 .corner{
-  background-color: #00E882;
+  background-color: #222222;
   position: absolute;
   height: 20px;
   width: 20px;
 }
 
 .side{
-  background-color: #00E882;
+  background-color: #222222;
   position: absolute;
 }
 
