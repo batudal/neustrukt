@@ -21,7 +21,7 @@ h2{
   transform: translate(-50%, -50%);
   top:50%;
   left:50%;
-  position:absolute;
+  position:relative;
   font-family: Inter;
   font-weight: 500;
   font-size: 16px;
@@ -29,28 +29,25 @@ h2{
   width: 142px;
 }
 
-.menu > span{
-  color: #FFF;
-  position: relative;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  top:50%;
-}
-  
+.alldivs-container {
+  display: grid;
+  grid-template-columns: 1fr 1000px 1fr;
+  grid-template-rows: 1fr 500px 1fr;
+  position: absolute;
+  top:0;
+  right:0;
+  bottom: 0;
+  left:0;
+  }
 
-.menu{
-  position: relative;
-  height: 100px;
-  width: 1000px;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.alldivs-container{
+/* .alldivs-container{
   position:absolute;
   width: 100%;
   height: 100%;
+} */
+
+.right-side{
+  position:relative;
 }
 
 .button{
@@ -58,30 +55,28 @@ h2{
   border-radius: 20px;
   width: 200px;
   height: 48px;
-  position:absolute;
-  top: 380px;
-  left: 400px;
+  position: absolute;
+  top: 340px;
+
 }
 
 .alldivs{
-  position: absolute;
-  height: 500px;
-  width: 1000px;
-  left: 50%;
-  top: 50%;
   background-color: #202020;
-  /* box-shadow: 2px 2px 25px 15px rgba(0, 0, 0, 0.05); */
   border-radius: 20px;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  grid-column: 2;
+  grid-row: 2;
+  justify-items: center;
+  justify-content: center;
+  padding: 20px;
+  display:grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 .t1{
-  position: absolute;
   width: 437px;
   height: 207px;
-  left: 400px;
-  top: 22%;
+  position: relative;
+  top: 75px;
 }
 
 h1{
@@ -97,14 +92,11 @@ h1 span{
 }
 
 .wholecube{
-  zoom: 0.75;
+  zoom: 1;
   width: 200px;
   height: 200px;
-  position: absolute;
-  left: 280px;
-  top: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  justify-self: center;
+  align-self: center;
 }
 
 .corner{
