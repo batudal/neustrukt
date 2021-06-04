@@ -8,7 +8,22 @@
 // tl.to(".s1", {duration: 0.5, y: -40}).to(".s2", {duration: 0.5, x: 40}).to(".s3", {duration: 0.5, y: 40}).to(".s4", {duration: 0.5, x: -40})
 
 gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
+// gsap.to(".wholecube", {
+//   scrollTrigger:{
+//     trigger: ".wholecube",
+//     start: "center center",
+//     end: "center top",
+//     pin: true,
+//     markers: true,
+//   },
+// });
+
+// gsap.fromTo(".alldivs",{y: -10},{y:0, duration:3});
+gsap.fromTo(".t1",{x: 45},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".wholecube",{x: -45},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".button",{opacity: 0},{opacity:1, duration:2, delay:0.25, ease:"power1.inOut"});
 
 function mytext() {
   let tl = gsap.timeline({
@@ -24,9 +39,6 @@ function mytext() {
   .to("h1 span", {text: "Modular", duration: 1, delay:1});
   return tl;
 };
-
-
-
 
 function s1() {
     let tl = gsap.timeline({
