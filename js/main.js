@@ -24,7 +24,7 @@ function mytext() {
   .to("h1 span", {text: "Modular", duration: 1, delay:1});
   return tl;
 };
-mytext();
+
 
 
 
@@ -92,6 +92,7 @@ s3()
 s4()
 cube()
 cube2()
+mytext()
 
 //   function colors() {
 //     let tl = gsap.timeline({
