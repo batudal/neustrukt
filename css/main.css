@@ -16,17 +16,13 @@ html {
   color: #fff;
 }
 
-
-
-.menu{
+.menu.container{
   grid-column: 3;
   width: 460px;
   justify-self: end;
-
 }
 
 .menu > .menu-item{
-  display: inline-block;
   padding: 20px;
   font-size: 15px;
   font-weight: 300;
@@ -35,14 +31,13 @@ html {
 }
 
 .menu > .menu-item:hover{
-  font-size: 18px;
+  font-weight: 700;
 }
 
 .logo{
   grid-column: 2;
   position: relative;
-  height: 100%;
-  display: inline-block;
+  height: 100px;
   width: 200px;
 }
 
@@ -224,6 +219,24 @@ h1 span{
   left: 40px;
   position: absolute;
 
+}
+
+.menu-container{
+  float:right;
+  padding-right: 10px;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px){
+  .navigation-bar{
+    display: block;
+  }
+  .logo{
+    float:left;
+  }
+  .menu{
+    justify-self: none;
+    float:right;
+  }
 }
 
 @media screen and (max-width: 1000px){
