@@ -34,10 +34,8 @@ h2{
   grid-template-columns: 1fr 1000px 1fr;
   grid-template-rows: 1fr 500px 1fr;
   position: absolute;
-  top:0;
-  right:0;
-  bottom: 0;
-  left:0;
+  width: 100%;
+  height: 100%;
   }
 
 /* .alldivs-container{
@@ -48,6 +46,8 @@ h2{
 
 .right-side{
   position:relative;
+  grid-column: 2;
+  width:100%;
 }
 
 .button{
@@ -57,7 +57,7 @@ h2{
   height: 48px;
   position: absolute;
   top: 340px;
-
+  left: 75px;
 }
 
 .alldivs{
@@ -75,8 +75,9 @@ h2{
 .t1{
   width: 437px;
   height: 207px;
-  position: relative;
+  position: absolute;
   top: 75px;
+  left: 75px;
 }
 
 h1{
@@ -157,4 +158,65 @@ h1 span{
   width: 20px;
   top: 60px;
   left: 40px;
+}
+
+@media screen and (max-width: 1000px){
+  .alldivs-container {
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: 1fr 500px 1fr;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    }
+  
+  .alldivs{
+      background-color:inherit;
+      border-radius: 20px;
+      grid-column: 2;
+      grid-row: 2;
+      justify-items: center;
+      justify-content: center;
+      padding: 20px;
+      display:grid;
+      grid-template-rows: 1fr 2fr;
+      grid-template-columns: 1fr;
+    }
+
+  h1{
+    font-size: 28px;
+  }
+
+  .t1{
+    width: 200px;
+    height: 207px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 170px;
+  }
+  .right-side{
+    position:relative;
+    grid-column: 1;
+    width:100%;
+  }
+
+  .wholecube{
+    zoom:0.50;
+  }
+
+  .button{
+    background: #0BBC6C;
+    border-radius: 20px;
+    width: 200px;
+    height: 48px;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 250px;
+    left: 50%;
+  }
+    
+  
+
 }
