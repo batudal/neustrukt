@@ -11,9 +11,47 @@
    Base styles: opinionated defaults
    ========================================================================== */
   
+
 html {
-  background-color: #111111;
+  background-color: #191919;
   color: #fff;
+}
+
+#hamburger{
+  height: 40px;
+  width: 40px;
+  position: relative;
+  display:none;
+  margin-right: 20px;
+  justify-self: end;
+}
+
+.hamburger-line{
+  background-color: #fff;
+  width:24px;
+  height: 3px;
+  position:absolute;
+
+}
+
+#hamburger > .line-1{
+  top: 9px;
+  left: 8px;
+}
+
+#hamburger > .line-2{
+  top: 18px;
+  left: 8px;
+}
+
+#hamburger > .line-3{
+  top: 27px;
+  left: 8px;
+}
+
+.menu-item-1{
+  color: #0BBC6C;
+  font-weight: 900;
 }
 
 .menu.container{
@@ -23,15 +61,17 @@ html {
 }
 
 .menu > .menu-item{
-  padding: 20px;
+  padding: 12px;
   font-size: 15px;
   font-weight: 300;
   font-family: Inter;
   float: right;
+  transition: background-color 0.5s;
 }
 
 .menu > .menu-item:hover{
-  font-weight: 700;
+  background-color: #303030;
+  border-bottom-right-radius: 20px;
 }
 
 .logo{
@@ -80,7 +120,7 @@ h2{
 .alldivs-container {
   display: grid;
   grid-template-columns: 1fr 1000px 1fr;
-  grid-template-rows: 1fr 500px 1fr;
+  grid-template-rows: 100px 500px 1fr;
   position: absolute;
   width: 100%;
   height: 800px;
@@ -88,7 +128,8 @@ h2{
   }
 
 .alldivs{
-  background-color: #141414;
+  background-color: #1b1b1b;
+  box-shadow: 0px 20px 50px 50px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
   grid-column: 2;
   grid-row: 2;
@@ -126,13 +167,28 @@ h1 span{
 }
 
 .button{
-  background: #0BBC6C;
+  border-color: #0BBC6C;
+  border-width: 3px;
+  border-style: solid;
   border-radius: 20px;
   width: 200px;
   height: 48px;
   position: absolute;
   top: 340px;
   left: 75px;
+  transition: background-color 0.5s;
+}
+
+.button:hover{
+  background-color: #0BBC6C;
+}
+
+.button > h2{
+  color: #0BBC6C;
+}
+
+.button:hover h2{
+  color: #fff;
 }
 
 .wholecube{
@@ -228,22 +284,43 @@ h1 span{
 
 @media screen and (min-width: 1000px) and (max-width: 1400px){
   .navigation-bar{
-    display: block;
+    display: grid;
+    grid-template-columns: 200px 1fr;
   }
   .logo{
     float:left;
+    grid-column: 1;
   }
   .menu{
+    grid-column: 2;
     justify-self: none;
     float:right;
   }
 }
 
 @media screen and (max-width: 1000px){
+
+  .navigation-bar{
+    grid-template-columns: 200px 1fr;
+  }
+
+  .logo{
+    grid-column: 1;
+  }
+
+  .menu{
+    display: none;
+  }
+
+  #hamburger{
+    display:block;
+    grid-column: 2;
+  }
+
   .alldivs-container {
     display: grid;
     grid-template-columns: 1fr 300px 1fr;
-    grid-template-rows: 1fr 500px 1fr;
+    grid-template-rows: 1px 2fr 1fr;
     position: absolute;
     width: 100%;
     height: 100%;
