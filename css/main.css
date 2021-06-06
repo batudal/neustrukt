@@ -1,21 +1,40 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-  
-
 html {
   background-color: #191919;
   color: #fff;
 }
+
+a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #0BBC6C;
+}
+
+
+.toggle{
+  background-color: #333333;
+  border-radius: 10px;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  float: right;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+.toggle-button{
+  position: absolute;
+  background-color: #0BBC6C;
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  top: 3px;
+  left: 3px;
+}
+
 
 #hamburger{
   height: 40px;
@@ -31,27 +50,27 @@ html {
   width:24px;
   height: 3px;
   position:absolute;
-
 }
 
-#hamburger > .line-1{
+#hamburger-line-1{
   top: 9px;
   left: 8px;
 }
 
-#hamburger > .line-2{
+#hamburger-line-2{
   top: 18px;
   left: 8px;
 }
 
-#hamburger > .line-3{
+#hamburger-line-3{
   top: 27px;
   left: 8px;
 }
 
-.menu-item-1{
-  color: #0BBC6C;
-  font-weight: 900;
+.menu-item h3{
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0px;
 }
 
 .menu.container{
@@ -63,15 +82,14 @@ html {
 .menu > .menu-item{
   padding: 12px;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: Inter;
   float: right;
   transition: background-color 0.5s;
 }
 
 .menu > .menu-item:hover{
-  background-color: #303030;
-  border-bottom-right-radius: 20px;
+  color: #0BBC6C;
 }
 
 .logo{
@@ -171,7 +189,7 @@ h1 span{
   border-width: 3px;
   border-style: solid;
   border-radius: 20px;
-  width: 200px;
+  width: 210px;
   height: 48px;
   position: absolute;
   top: 340px;
@@ -185,6 +203,8 @@ h1 span{
 
 .button > h2{
   color: #0BBC6C;
+  font-weight: 700;
+  width: 150px;
 }
 
 .button:hover h2{

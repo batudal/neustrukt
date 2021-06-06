@@ -10,6 +10,52 @@
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
+// function toggleLight() {
+//   let tl = gsap.timeline({
+//       repeatDelay: 0.25,
+//   });
+//   tl.to(".wholecube", {scale: 0.8, duration: 1, delay:1.5, ease:"power1.in"}).to(".wholecube", {scale: 1, duration: 1,ease:"power1.out"});
+//   return tl;
+// }
+
+// var mylement = $('.toggle').click(function()
+//         {
+//           gsap.to(".toggle",{x:10, duration: 1});
+// //         });
+var mylement = document.querySelector(".toggle");
+var togglestate = false;
+
+mylement.onclick = function() {
+  if (togglestate == false){
+    gsap.to(".toggle-button",{x:20, duration:0.3});
+    gsap.to(".toggle",{backgroundColor:"#f2f2f2", duration:0.3});
+    togglestate = true;
+
+    gsap.to("html", {backgroundColor:"#ffffff"});
+    gsap.to(".alldivs", {backgroundColor:"#f2f2f2"});
+    gsap.to("h1", {color:"#202020"});
+    gsap.to("h3", {color:"#202020"});
+
+  }
+  else{
+    gsap.to(".toggle-button",{x:0, duration:0.3});
+    gsap.to(".toggle", {backgroundColor:"#3f3f3f", duration:0.3});
+    togglestate = false;
+
+    gsap.to("html", {backgroundColor:"#191919"});
+    gsap.to(".alldivs", {backgroundColor:"#1b1b1b"});
+    gsap.to("h1", {color:"#ffffff"});
+    gsap.to("h3", {color:"#ffffff"});
+}};
+
+// gsap.to(mylement,{x:20, duration:1});
+
+// var closeTrigger = $('.toggle');
+
+//         document.getElementById('.toggle').onclick=function(){
+//           x:30;
+//         }
+
 // gsap.to(".wholecube", {
 //   scrollTrigger:{
 //     trigger: ".wholecube",
