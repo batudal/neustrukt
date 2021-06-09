@@ -10,18 +10,50 @@
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
-// function toggleLight() {
-//   let tl = gsap.timeline({
-//       repeatDelay: 0.25,
-//   });
-//   tl.to(".wholecube", {scale: 0.8, duration: 1, delay:1.5, ease:"power1.in"}).to(".wholecube", {scale: 1, duration: 1,ease:"power1.out"});
-//   return tl;
-// }
+gsap.to("#scroll-1", {
+  scrollTrigger:{
+    trigger: "#scroll-1",
+    start: "top 100",
+    endTrigger: "#scroll-4",
+    end: "top 120",
+    scrub: 1.5,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+  },
+  scale: 0.9,
+});
 
-// var mylement = $('.toggle').click(function()
-//         {
-//           gsap.to(".toggle",{x:10, duration: 1});
-// //         });
+gsap.to("#scroll-2", {
+  scrollTrigger:{
+    trigger: "#scroll-2",
+    start: "top 115",
+    endTrigger: "#scroll-4",
+    end: "top 120",
+    scrub: 1.5,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+
+    },
+  scale: 0.92,
+});
+
+gsap.to("#scroll-3", {
+  scrollTrigger:{
+    trigger: "#scroll-3",
+    start: "top 130",
+    endTrigger: "#scroll-4",
+    end: "top 120",
+    scrub: 1.5,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+
+  },
+  scale: 0.94,
+});
+
 var mylement = document.querySelector(".toggle");
 var togglestate = false;
 
@@ -30,22 +62,19 @@ mylement.onclick = function() {
     gsap.to(".toggle-button",{x:20, duration:0.3});
     gsap.to(".toggle",{backgroundColor:"#f2f2f2", duration:0.3});
     togglestate = true;
-
     gsap.to("html", {backgroundColor:"#ffffff"});
-    gsap.to(".alldivs", {backgroundColor:"#f2f2f2"});
     gsap.to("h1", {color:"#202020"});
     gsap.to("h3", {color:"#202020"});
-
+    gsap.to(".side", {backgroundColor: "#dddddd"});
   }
   else{
     gsap.to(".toggle-button",{x:0, duration:0.3});
     gsap.to(".toggle", {backgroundColor:"#3f3f3f", duration:0.3});
     togglestate = false;
-
     gsap.to("html", {backgroundColor:"#191919"});
-    gsap.to(".alldivs", {backgroundColor:"#1b1b1b"});
     gsap.to("h1", {color:"#ffffff"});
     gsap.to("h3", {color:"#ffffff"});
+    gsap.to(".side", {backgroundColor: "#3f3f3f"});
 }};
 
 // gsap.to(mylement,{x:20, duration:1});
@@ -66,23 +95,23 @@ mylement.onclick = function() {
 //   },
 // });
 
-// gsap.fromTo(".alldivs",{y: -10},{y:0, duration:3});
-gsap.fromTo(".t1",{x: 45},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".headline-container",{x: 45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".wholecube",{x: -45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".button",{opacity: 0},{opacity:1, duration:2, delay:0.25, ease:"power1.inOut"});
+gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:4, delay:2});
 
 function mytext() {
   let tl = gsap.timeline({
     repeat: -1,
   });
-  tl.to("h1 span", {text: "", duration: 1, delay:1})
-  .to("h1 span", {text: "Scalable", duration: 1, delay:1})
-  .to("h1 span", {text: "", duration: 1, delay:1})
-  .to("h1 span", {text: "Sustainable", duration: 1, delay:1})
-  .to("h1 span", {text: "", duration: 1, delay:1})
-  .to("h1 span", {text: "Accessible", duration: 1, delay:1})
-  .to("h1 span", {text: "", duration: 1, delay:1})
-  .to("h1 span", {text: "Modular", duration: 1, delay:1});
+  tl.to(".headline h1 span", {text: "", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "Scalable", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "Sustainable", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "Accessible", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "", duration: 1, delay:1})
+  .to(".headline h1 span", {text: "Modular", duration: 1, delay:1});
   return tl;
 };
 
