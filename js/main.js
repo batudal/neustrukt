@@ -10,6 +10,8 @@
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 gsap.to("#scroll-1", {
   scrollTrigger:{
     trigger: "#scroll-1",
@@ -185,70 +187,44 @@ cube()
 cube2()
 mytext()
 
-//   function colors() {
-//     let tl = gsap.timeline({
-//         repeat: -1,
-//         repeatDelay: 0,
-//         defaults: { // children inherit these defaults
-//             ease: "power1.in" 
-//         },
-//     });
-//     tl.to([".side",".corner"], {backgroundColor: '#5DCCEF', duration: 2, delay:1.5})
-//       .to([".side",".corner"], {backgroundColor: '#5D7DEF', duration: 2, delay:2.5})
-//       .to([".side",".corner"], {backgroundColor: '#B85DEF', duration: 2, delay:2.5})
-//       .to([".side",".corner"], {backgroundColor: '#EF5DA8', duration: 2, delay:2.5})
-//       .to([".side",".corner"], {backgroundColor: '#EF775D', duration: 2, delay:2.5})
-//       .to([".side",".corner"], {backgroundColor: '#EFC65D', duration: 2, delay:2.5})
-//       .to([".side",".corner"], {backgroundColor: '#AFEF5D', duration: 2, delay:2.5})
-//       .to([".side",".corner"], {backgroundColor: '#00E882', duration: 2, delay:2.5});
-//     return tl;
-//   }
+function card_side_1() {
+  let tl = gsap.timeline({
+      repeatDelay: 2.25,
+      repeat: -1,
+  });
+  tl.to("#card-side-1", {top: "39px",left: "60px", duration: 0.5});
+  return tl;
+}
 
-//   function midcube() {
-//     let tl = gsap.timeline({
-//         repeat: -1,
-//         repeatDelay: 1,
-//         defaults: { // children inherit these defaults
-//             ease: "power1.in" 
-//         },
-//     });
-//     tl.to(".midcube", {backgroundColor: '#00E882', duration: 2, delay:1.5}).to(".midcube", {backgroundColor: '#222222', duration: 2, delay:2.5});
-//     return tl;
-//   }
+function card_side_2() {
+  let tl = gsap.timeline({
+      repeatDelay: 2.25,
+      repeat: -1,
+  });
+  tl.to("#card-side-2", {rotate: 90, x: 54, y:-2, duration: 0.5});
+  return tl;
+}
 
+function card_side_3() {
+  let tl = gsap.timeline({
+      repeatDelay: 2.25,
+      repeat: -1,
+  });
+  tl.to("#card-side-3", {rotate: 90, x: -54, y:-28, duration: 0.5});
+  return tl;
+}
 
-// gsap.to(".wholecube", {rotate:3600/4, duration: 2, delay:2.5, ease:"power1.inOut"});
-// (function() {
-//     const blurProperty = gsap.utils.checkPrefix("filter"),
-//           blurExp = /blur\((.+)?px\)/,
-//           getBlurMatch = target => (gsap.getProperty(target, blurProperty) || "").match(blurExp) || [];
-  
-//     gsap.registerPlugin({
-//       name: "blur",
-//       get(target) {
-//         return +(getBlurMatch(target)[1]) || 0;
-//       },
-//       init(target, endValue) {
-//         let data = this,
-//             filter = gsap.getProperty(target, blurProperty),
-//             endBlur = "blur(" + endValue + "px)",
-//             match = getBlurMatch(target)[0],
-//             index;
-//         if (filter === "none") {
-//           filter = "";
-//         }
-//         if (match) {
-//           index = filter.indexOf(match);
-//           endValue = filter.substr(0, index) + endBlur + filter.substr(index + match.length);
-//         } else {
-//           endValue = filter + endBlur;
-//           filter += filter ? " blur(0px)" : "blur(0px)";
-//         }
-//         data.target = target; 
-//         data.interp = gsap.utils.interpolate(filter, endValue); 
-//       },
-//       render(progress, data) {
-//         data.target.style[blurProperty] = data.interp(progress);
-//       }
-//     });
-//   })();
+function card_corner_1() {
+  let tl = gsap.timeline({
+      repeatDelay: 2.25,
+      repeat: -1,
+  });
+  tl.to("#card-corner-1", {top:"40px", duration: 0.5});
+  return tl;
+}
+
+card_side_1()
+card_side_2()
+card_side_3()
+
+card_corner_1()

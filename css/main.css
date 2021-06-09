@@ -20,6 +20,71 @@ a{
 a:hover{
   color: #0BBC6C;
 }
+
+#card-animation-container{
+  zoom: 1;
+  width: 200px;
+  height: 200px;
+  justify-self: center;
+  grid-column: 2;
+  position: relative;
+  top: 130px;
+}
+
+#card-animation-container > .card-corner{
+  background-color: #0BBC6C;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+}
+
+#card-animation-container > .card-side{
+  background-color: #333333;
+  position: absolute;
+  height: 20px;
+  width: 80px;
+}
+
+#card-corner-1{
+  top: 68px;
+  left: 40px;
+}
+
+#card-corner-2{
+  top: 92px;
+  left: 40px;
+}
+
+#card-corner-3{
+  top: 116px;
+  left: 40px;
+}
+
+#card-corner-4{
+  top: 140px;
+  left: 40px;
+}
+
+#card-side-1{
+  top: 68px;
+  left: 64px;
+}
+
+#card-side-2{
+  top: 92px;
+  left: 64px;
+}
+
+#card-side-3{
+  top: 116px;
+  left: 64px;
+}
+
+#card-side-4{
+  top: 140px;
+  left: 64px;
+}
+
 /* 
 .card-text-container h1 span{
   color:#0BBC6C;
@@ -29,7 +94,7 @@ a:hover{
   display:grid;
   grid-template-rows: 1fr 5fr;
   height: 300px;
-  padding: 40px;
+  padding: 80px;
   align-self: center;
 }
 
@@ -269,7 +334,6 @@ h1 span{
   width: 200px;
   height: 200px;
   justify-self: center;
-  /* align-self: center; */
   grid-column: 1;
   position: relative;
   top: 130px;
