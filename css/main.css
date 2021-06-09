@@ -41,7 +41,7 @@ a:hover{
 
 
 #scroll-2{
-  top: 700px;
+  top: 600px;
 }
 
 #scroll-3{
@@ -73,7 +73,7 @@ a:hover{
   height: 500px;
   width: 1000px;
   border-radius: 20px;
-  box-shadow: 0px 20px 40px 40px rgba(0, 0, 0, 0.10);   
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);   
 }
 
 .toggle{

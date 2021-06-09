@@ -66,6 +66,8 @@ mylement.onclick = function() {
     gsap.to("h1", {color:"#202020"});
     gsap.to("h3", {color:"#202020"});
     gsap.to(".side", {backgroundColor: "#dddddd"});
+    gsap.to(".scroll", {backgroundColor: "#ffffff"});
+    gsap.to("p", {color: "#202020"})
   }
   else{
     gsap.to(".toggle-button",{x:0, duration:0.3});
@@ -75,6 +77,8 @@ mylement.onclick = function() {
     gsap.to("h1", {color:"#ffffff"});
     gsap.to("h3", {color:"#ffffff"});
     gsap.to(".side", {backgroundColor: "#3f3f3f"});
+    gsap.to(".scroll", {backgroundColor: "#202020"});
+    gsap.to("p", {color: "#ffffff"})
 }};
 
 // gsap.to(mylement,{x:20, duration:1});
