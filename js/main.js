@@ -69,7 +69,9 @@ mylement.onclick = function() {
     gsap.to("h3", {color:"#202020"});
     gsap.to(".side", {backgroundColor: "#dddddd"});
     gsap.to(".scroll", {backgroundColor: "#ffffff"});
-    gsap.to("p", {color: "#202020"})
+    gsap.to("p", {color: "#202020"});
+    gsap.to(".card-side", {backgroundColor: "#f2f2f2"});
+
   }
   else{
     gsap.to(".toggle-button",{x:0, duration:0.3});
@@ -80,7 +82,9 @@ mylement.onclick = function() {
     gsap.to("h3", {color:"#ffffff"});
     gsap.to(".side", {backgroundColor: "#3f3f3f"});
     gsap.to(".scroll", {backgroundColor: "#202020"});
-    gsap.to("p", {color: "#ffffff"})
+    gsap.to("p", {color: "#ffffff"});
+    gsap.to(".card-side", {backgroundColor: "#202020"});
+
 }};
 
 // gsap.to(mylement,{x:20, duration:1});
@@ -189,42 +193,85 @@ mytext()
 
 function card_side_1() {
   let tl = gsap.timeline({
-      repeatDelay: 2.25,
+      repeatDelay: 2,
       repeat: -1,
   });
-  tl.to("#card-side-1", {top: "39px",left: "60px", duration: 0.5});
+  tl.to("#card-side-1", {top: "40px",left: "60px", duration: 1})
+    .to("#card-side-1", {top:"68px", left:"64px", duration: 1, delay:1});
   return tl;
 }
 
 function card_side_2() {
   let tl = gsap.timeline({
-      repeatDelay: 2.25,
+      repeatDelay: 2,
       repeat: -1,
   });
-  tl.to("#card-side-2", {rotate: 90, x: 54, y:-2, duration: 0.5});
+  tl.to("#card-side-2", {rotate: 90, top:"90px", left:"10px", duration: 1})
+    .to("#card-side-2", {rotate: 0, top:"92px", left:"64px", duration: 1, delay:1});
   return tl;
 }
 
 function card_side_3() {
   let tl = gsap.timeline({
-      repeatDelay: 2.25,
+      repeatDelay: 2,
       repeat: -1,
+      ease: "power1.inOut",
   });
-  tl.to("#card-side-3", {rotate: 90, x: -54, y:-28, duration: 0.5});
+  tl.to("#card-side-3", {rotate: 90, top:"90px", left:"110px", duration: 1})
+    .to("#card-side-3", {rotate: 0, top:"116px", left:"64px", duration: 1, delay:1});
+  return tl;
+}
+
+function card_side_4() {
+  let tl = gsap.timeline({
+      repeatDelay: 2,
+      repeat: -1,
+      ease: "power1.inOut",
+  });
+  tl.to("#card-side-4", {left:"60px", duration: 1})
+    .to("#card-side-4", {left:"64px", duration: 1, delay:1});
   return tl;
 }
 
 function card_corner_1() {
   let tl = gsap.timeline({
-      repeatDelay: 2.25,
+      repeatDelay: 2,
       repeat: -1,
+      ease: "power1.inOut",
   });
-  tl.to("#card-corner-1", {top:"40px", duration: 0.5});
+  tl.to("#card-corner-1", {top:"40px", duration: 1})
+    .to("#card-corner-1", {top:"68px", duration: 1, delay:1});
+  return tl;
+}
+
+function card_corner_2() {
+  let tl = gsap.timeline({
+      repeatDelay: 2,
+      repeat: -1,
+      ease: "power1.inOut",
+  });
+
+  tl.to("#card-corner-2", {top:"40px", left:"140px", duration: 1})
+    .to("#card-corner-2", {top:"92px", left:"40px", duration: 1, delay:1});
+  return tl;
+}
+
+function card_corner_3() {
+  let tl = gsap.timeline({
+      repeatDelay: 2,
+      repeat: -1,
+      ease: "power1.inOut",
+  });
+  tl.to("#card-corner-3", {top:"140px", left:"140px", duration: 1})
+    .to("#card-corner-3", {top:"116px", left:"40px", duration: 1, delay:1});
   return tl;
 }
 
 card_side_1()
 card_side_2()
 card_side_3()
+card_side_4()
 
 card_corner_1()
+card_corner_2()
+card_corner_3()
