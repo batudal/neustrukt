@@ -1,6 +1,6 @@
 html {
-  background-color: #101010;
-  color: #fff;
+  background-color: #ffffff;
+  color: #202020;
 }
 
 p{
@@ -13,7 +13,7 @@ p{
 }
 
 a{
-  color: #ffffff;
+  color: #202020;
   text-decoration: none;
 }
 
@@ -125,7 +125,7 @@ a:hover{
 }
 
 #scroll-wrapper{
-  background-color: #121212;
+  background-color: #f2f2f2;
   width: 1400px;
   grid-column: 2;
   justify-items: center;
@@ -149,7 +149,7 @@ a:hover{
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
   /* padding: 40px; */
-  background-color: #181818;
+  background-color: #ffffff;
   grid-column: 2;
   position:absolute;
   height: 500px;
@@ -239,14 +239,14 @@ a:hover{
 .logo{
   grid-column: 2;
   position: relative;
-  height: 100px;
-  width: 200px;
+  align-items: center;
+  height: 48px;
 }
 
-.logo > img{
+/* .logo > img{
   width: 200px;
   height: 100px;
-}
+} */
 
 .navigation-bar{
   display: grid;
@@ -312,7 +312,7 @@ h1{
   font-family: Inter;
   font-weight: 700;
   font-size: 60px;
-  color: #FFF;
+  color: #202020;
   margin:0;
 }
 
@@ -339,7 +339,7 @@ h1 span{
 
 .button > h2{
   color: #0BBC6C;
-  font-weight: 700;
+  font-weight: 900;
   width: 100px;
 }
 
