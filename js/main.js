@@ -20,7 +20,7 @@ gsap.to("#scroll-1", {
     end: "top 120",
     scrub: 1.5,
     pin: true,
-    anticipatePin: 0.5,
+    anticipatePin: 1,
     invalidateOnRefresh: true,
   },
   scale: 0.9,
@@ -34,7 +34,7 @@ gsap.to("#scroll-2", {
     end: "top 120",
     scrub: 1.5,
     pin: true,
-    anticipatePin: 0.5,
+    anticipatePin: 1,
     invalidateOnRefresh: true,
 
     },
@@ -49,7 +49,7 @@ gsap.to("#scroll-3", {
     end: "top 120",
     scrub: 1.5,
     pin: true,
-    anticipatePin: 0.5,
+    anticipatePin: 1,
     invalidateOnRefresh: true,
 
   },
