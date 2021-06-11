@@ -20,7 +20,7 @@ gsap.to("#scroll-1", {
     end: "top 120",
     scrub: 1.5,
     pin: true,
-    anticipatePin: 1,
+    anticipatePin: 0.5,
     invalidateOnRefresh: true,
   },
   scale: 0.9,
@@ -34,7 +34,7 @@ gsap.to("#scroll-2", {
     end: "top 120",
     scrub: 1.5,
     pin: true,
-    anticipatePin: 1,
+    anticipatePin: 0.5,
     invalidateOnRefresh: true,
 
     },
@@ -49,7 +49,7 @@ gsap.to("#scroll-3", {
     end: "top 120",
     scrub: 1.5,
     pin: true,
-    anticipatePin: 1,
+    anticipatePin: 0.5,
     invalidateOnRefresh: true,
 
   },
@@ -71,6 +71,7 @@ mylement.onclick = function() {
     gsap.to(".scroll", {backgroundColor: "#ffffff"});
     gsap.to("p", {color: "#202020"});
     gsap.to(".card-side", {backgroundColor: "#f2f2f2"});
+    gsap.to("#scroll-wrapper", {backgroundColor: "#f5f5f5"});
 
   }
   else{
@@ -108,7 +109,7 @@ mylement.onclick = function() {
 gsap.fromTo(".headline-container",{x: 45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".wholecube",{x: -45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".button",{opacity: 0},{opacity:1, duration:2, delay:0.25, ease:"power1.inOut"});
-gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:4, delay:2});
+gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:2, delay:1});
 
 function mytext() {
   let tl = gsap.timeline({

@@ -1,5 +1,5 @@
 html {
-  background-color: #191919;
+  background-color: #101010;
   color: #fff;
 }
 
@@ -19,6 +19,10 @@ a{
 
 a:hover{
   color: #0BBC6C;
+}
+
+.footer{
+  height: 1000px;
 }
 
 #card-animation-container{
@@ -105,24 +109,38 @@ a:hover{
 }
 
 #scroll-2{
-  top: 600px;
+  top: 680px;
 }
 
 #scroll-3{
-  top: 1200px;
+  top: 1280px;
 }
 
 #scroll-4{
-  top:1800px;
+  top:1880px;  
+}
+
+#scroll-4 a{
+  color: #0BBC6C;
+}
+
+#scroll-wrapper{
+  background-color: #121212;
+  width: 1400px;
+  grid-column: 2;
+  justify-items: center;
+  position: relative;
+  border-radius: 20px;
+  padding-top: 80px;
 }
 
 .scroll-container{
   display: grid;
-  grid-template-columns: 1fr 1000px 1fr;
+  grid-template-columns: 1fr 1400px 1fr;
   grid-template-rows: 1fr;
   position: relative;
   width: 100%;
-  height: 3200px;
+  height: 2500px;
   /* top: 900px; */
 }
 
@@ -131,13 +149,14 @@ a:hover{
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
   /* padding: 40px; */
-  background-color: #202020;
+  background-color: #181818;
   grid-column: 2;
   position:absolute;
   height: 500px;
   width: 1000px;
+  left: 200px;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);   
+  box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.05);   
 }
 
 .toggle{
@@ -321,7 +340,7 @@ h1 span{
 .button > h2{
   color: #0BBC6C;
   font-weight: 700;
-  width: 150px;
+  width: 100px;
 }
 
 .button:hover h2{
