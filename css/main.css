@@ -9,7 +9,7 @@ p{
   line-height: 2;
   font-size: 18px;
   padding: 10px;
-  margin: 10;
+  margin: 0px;
 }
 
 a{
@@ -21,8 +21,70 @@ a:hover{
   color: #0BBC6C;
 }
 
+h2{
+  font-weight: 900px;
+  color:#0BBC6C;
+  margin: 0;
+  font-family: Inter;
+  padding: 10px;
+  font-size: 24px;
+}
+
+h4{
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 700;
+  color:#0BBC6C;
+  padding: 10px;
+  margin: 0px;
+}
+
+#category-cards-container{
+  grid-column: 2;
+  position: relative;
+  height: 360px;
+  width: 100%;
+}
+
+.category-card{
+  display: inline-block;
+  height: 280px;
+  width: 360px;
+  position:absolute;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 47px 133px 40px;
+  box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.05);
+}
+
+#category-card-1{
+  left: 0px;
+
+}
+
+#category-card-2{
+  left: 480px;
+}
+
+#category-card-3{
+  left: 960px;
+}
+
+
+#categories{
+  display:grid;
+  grid-template-columns: 1fr 1400px 1fr;
+  position: relative;
+  height: 600px;
+  align-items: center;
+}
+
 .footer{
   height: 1000px;
+  background-color: #f2f2f2;
 }
 
 #card-animation-container{
@@ -236,17 +298,18 @@ a:hover{
   color: #0BBC6C;
 }
 
+.menu-item-1 h3{
+  color: #0BBC6C;
+  font-weight: 700;
+
+}
+
 .logo{
   grid-column: 2;
   position: relative;
   align-items: center;
   height: 48px;
 }
-
-/* .logo > img{
-  width: 200px;
-  height: 100px;
-} */
 
 .navigation-bar{
   display: grid;
@@ -258,7 +321,7 @@ a:hover{
   align-items: center;
 }
 
-h2{
+.button > h2{
   margin: 0;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -266,19 +329,19 @@ h2{
   left:50%;
   position:relative;
   font-family: Inter;
-  font-weight: 500;
   font-size: 16px;
-  color: #FFF;
-  width: 142px;
+  color: #0BBC6C;
+  font-weight: 900;
+  width: 100px;
 }
 
 .hero-container {
   display: grid;
   grid-template-columns: 1fr 1000px 1fr;
-  grid-template-rows: 100px 500px 1fr;
+  grid-template-rows: 100px 500px 100px;
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 700px;
   }
 
 .hero{
@@ -337,11 +400,6 @@ h1 span{
   background-color: #0BBC6C;
 }
 
-.button > h2{
-  color: #0BBC6C;
-  font-weight: 900;
-  width: 100px;
-}
 
 .button:hover h2{
   color: #fff;
@@ -526,4 +584,12 @@ h1 span{
     top: 300px;
     left: 50%;
   }
+}
+
+.category-card img{
+  padding: 10px;
+}
+
+.category-card h2{
+  color: #202020;
 }
