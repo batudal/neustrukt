@@ -109,7 +109,7 @@ gsap.to("#scroll-3", {
 gsap.fromTo(".headline-container",{x: 45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".wholecube",{x: -45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".button",{opacity: 0},{opacity:1, duration:2, delay:0.25, ease:"power1.inOut"});
-gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:2, delay:1});
+gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:1, delay:1});
 
 function mytext() {
   let tl = gsap.timeline({

@@ -1,6 +1,14 @@
+:root {
+  --main-color: #0BBC6C;
+  --alternative-color: #38f9d7;
+  --black: #333333;
+  --light-gray: #f8f8f8;
+  --white: #ffffff;
+}
+
 html {
-  background-color: #ffffff;
-  color: #202020;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 p{
@@ -13,17 +21,27 @@ p{
 }
 
 a{
-  color: #202020;
+  color: var(--black);
   text-decoration: none;
 }
 
 a:hover{
-  color: #0BBC6C;
+  color: var(--main-color);
+}
+
+h5 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(left,#6a11cb,#2575fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 300px;
+  font-family: Inter;
 }
 
 h2{
   font-weight: 900px;
-  color:#0BBC6C;
+  color:var(--main-color);
   margin: 0;
   font-family: Inter;
   padding: 10px;
@@ -34,7 +52,7 @@ h4{
   font-family: Inter;
   font-size: 18px;
   font-weight: 700;
-  color:#0BBC6C;
+  color:var(--main-color);
   padding: 10px;
   margin: 0px;
 }
@@ -51,7 +69,7 @@ h4{
   height: 280px;
   width: 360px;
   position:absolute;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 20px;
   padding: 40px;
   display: grid;
@@ -84,7 +102,7 @@ h4{
 
 .footer{
   height: 1000px;
-  background-color: #f2f2f2;
+  background-color: var(--light-gray);
 }
 
 #card-animation-container{
@@ -98,14 +116,14 @@ h4{
 }
 
 #card-animation-container > .card-corner{
-  background-color: #0BBC6C;
+  background-color: var(--main-color);
   position: absolute;
   height: 20px;
   width: 20px;
 }
 
 #card-animation-container > .card-side{
-  background-color: #333333;
+  background-color: var(--black);
   position: absolute;
   height: 20px;
   width: 80px;
@@ -151,11 +169,6 @@ h4{
   left: 64px;
 }
 
-/* 
-.card-text-container h1 span{
-  color:#0BBC6C;
-} */
-
 .card-text-container{
   display:grid;
   grid-template-rows: 1fr 5fr;
@@ -183,11 +196,11 @@ h4{
 }
 
 .scroll a{
-  color: #0BBC6C;
+  color: var(--main-color);
 }
 
 #scroll-wrapper{
-  background-color: #f2f2f2;
+  background-color: var(--light-gray);
   width: 1400px;
   grid-column: 2;
   justify-items: center;
@@ -210,19 +223,19 @@ h4{
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
-  /* padding: 40px; */
-  background-color: #ffffff;
+  background-color: var(--white);
   grid-column: 2;
   position:absolute;
   height: 500px;
   width: 1000px;
   left: 200px;
   border-radius: 20px;
-  box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.05);   
+  box-shadow: 0px 0px 25px 10px rgba(33, 33, 33, 0.05);   
 }
 
+
 .toggle{
-  background-color: #333333;
+  background-color: var(--black);
   border-radius: 10px;
   width: 40px;
   height: 20px;
@@ -234,7 +247,7 @@ h4{
 
 .toggle-button{
   position: absolute;
-  background-color: #0BBC6C;
+  background-color: var(--main-color);
   height: 14px;
   width: 14px;
   border-radius: 10px;
@@ -252,7 +265,7 @@ h4{
 }
 
 .hamburger-line{
-  background-color: #fff;
+  background-color: var(--white);
   width:24px;
   height: 3px;
   position:absolute;
@@ -295,11 +308,11 @@ h4{
 }
 
 .menu > .menu-item:hover{
-  color: #0BBC6C;
+  color: var(--main-color);
 }
 
 .menu-item-1 h3{
-  color: #0BBC6C;
+  color: var(--main-color);
   font-weight: 700;
 
 }
@@ -330,7 +343,7 @@ h4{
   position:relative;
   font-family: Inter;
   font-size: 16px;
-  color: #0BBC6C;
+  color: var(--main-color);
   font-weight: 900;
   width: 100px;
 }
@@ -345,9 +358,6 @@ h4{
   }
 
 .hero{
-  /* background-color: #1b1b1b;
-  box-shadow: 0px 20px 40px 40px rgba(0, 0, 0, 0.10); */
-  /* border-radius: 20px; */
   grid-column: 2;
   grid-row: 2;
   justify-items: center;
@@ -375,16 +385,16 @@ h1{
   font-family: Inter;
   font-weight: 700;
   font-size: 60px;
-  color: #202020;
+  color: var(--black);
   margin:0;
 }
 
 h1 span{
-  color: #0BBC6C;
+  color: var(--main-color);
 }
 
 .button{
-  border-color: #0BBC6C;
+  border-color: var(--main-color);
   border-width: 3px;
   border-style: solid;
   border-radius: 20px;
@@ -397,7 +407,7 @@ h1 span{
 }
 
 .button:hover{
-  background-color: #0BBC6C;
+  background-color: var(--main-color);
 }
 
 
@@ -416,14 +426,14 @@ h1 span{
 }
 
 .wholecube > .corner{
-  background-color: #0BBC6C;
+  background-color: var(--main-color);
   position: absolute;
   height: 20px;
   width: 20px;
 }
 
 .side{
-  background-color: #333333;
+  background-color: var(--black);
   position: absolute;
 }
 
@@ -574,7 +584,7 @@ h1 span{
   }
 
   .button{
-    background: #0BBC6C;
+    background: var(--main-color);
     border-radius: 20px;
     width: 200px;
     height: 48px;
@@ -591,5 +601,5 @@ h1 span{
 }
 
 .category-card h2{
-  color: #202020;
+  color: var(--black);
 }
