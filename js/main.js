@@ -1,16 +1,5 @@
-// var tl = gsap.timeline({
-//     delay: 0.5,
-//     repeat: -1, // number of repeats (-1 for infinite)
-//     repeatDelay: 0, // seconds between repeats
-//     repeatRefresh: true, // invalidates on each repeat
-//     yoyo: true, // if true > A-B-B-A, if false > A-B-A-B
-//   });
-// tl.to(".s1", {duration: 0.5, y: -40}).to(".s2", {duration: 0.5, x: 40}).to(".s3", {duration: 0.5, y: 40}).to(".s4", {duration: 0.5, x: -40})
-
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 gsap.to("#scroll-1", {
   scrollTrigger:{
@@ -183,7 +172,6 @@ function s1() {
     return tl;
   }
 
-
 s1()
 s2()
 s3()
@@ -197,8 +185,8 @@ function card_side_1() {
       repeatDelay: 2,
       repeat: -1,
   });
-  tl.to("#card-side-1", {top: "40px",left: "60px", duration: 1})
-    .to("#card-side-1", {top:"68px", left:"64px", duration: 1, delay:1});
+  tl.to("#card-1-side-1", {top: "40px",left: "60px", duration: 1})
+    .to("#card-1-side-1", {top:"68px", left:"64px", duration: 1, delay:1});
   return tl;
 }
 
@@ -207,8 +195,8 @@ function card_side_2() {
       repeatDelay: 2,
       repeat: -1,
   });
-  tl.to("#card-side-2", {rotate: 90, top:"90px", left:"10px", duration: 1})
-    .to("#card-side-2", {rotate: 0, top:"92px", left:"64px", duration: 1, delay:1});
+  tl.to("#card-1-side-2", {rotate: 90, top:"90px", left:"10px", duration: 1})
+    .to("#card-1-side-2", {rotate: 0, top:"92px", left:"64px", duration: 1, delay:1});
   return tl;
 }
 
@@ -218,8 +206,8 @@ function card_side_3() {
       repeat: -1,
       ease: "power1.inOut",
   });
-  tl.to("#card-side-3", {rotate: 90, top:"90px", left:"110px", duration: 1})
-    .to("#card-side-3", {rotate: 0, top:"116px", left:"64px", duration: 1, delay:1});
+  tl.to("#card-1-side-3", {rotate: 90, top:"90px", left:"110px", duration: 1})
+    .to("#card-1-side-3", {rotate: 0, top:"116px", left:"64px", duration: 1, delay:1});
   return tl;
 }
 
@@ -229,8 +217,8 @@ function card_side_4() {
       repeat: -1,
       ease: "power1.inOut",
   });
-  tl.to("#card-side-4", {left:"60px", duration: 1})
-    .to("#card-side-4", {left:"64px", duration: 1, delay:1});
+  tl.to("#card-1-side-4", {left:"60px", duration: 1})
+    .to("#card-1-side-4", {left:"64px", duration: 1, delay:1});
   return tl;
 }
 
@@ -240,8 +228,8 @@ function card_corner_1() {
       repeat: -1,
       ease: "power1.inOut",
   });
-  tl.to("#card-corner-1", {top:"40px", duration: 1})
-    .to("#card-corner-1", {top:"68px", duration: 1, delay:1});
+  tl.to("#card-1-corner-1", {top:"40px", duration: 1})
+    .to("#card-1-corner-1", {top:"68px", duration: 1, delay:1});
   return tl;
 }
 
@@ -252,8 +240,8 @@ function card_corner_2() {
       ease: "power1.inOut",
   });
 
-  tl.to("#card-corner-2", {top:"40px", left:"140px", duration: 1})
-    .to("#card-corner-2", {top:"92px", left:"40px", duration: 1, delay:1});
+  tl.to("#card-1-corner-2", {top:"40px", left:"140px", duration: 1})
+    .to("#card-1-corner-2", {top:"92px", left:"40px", duration: 1, delay:1});
   return tl;
 }
 
@@ -263,8 +251,8 @@ function card_corner_3() {
       repeat: -1,
       ease: "power1.inOut",
   });
-  tl.to("#card-corner-3", {top:"140px", left:"140px", duration: 1})
-    .to("#card-corner-3", {top:"116px", left:"40px", duration: 1, delay:1});
+  tl.to("#card-1-corner-3", {top:"140px", left:"140px", duration: 1})
+    .to("#card-1-corner-3", {top:"116px", left:"40px", duration: 1, delay:1});
   return tl;
 }
 
