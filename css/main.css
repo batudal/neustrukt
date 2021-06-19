@@ -505,7 +505,7 @@ h4{
   grid-column: 2;
   position: relative;
   align-items: center;
-  height: 48px;
+  height: 41px;
 }
 
 .navigation-bar{
@@ -560,11 +560,11 @@ h4{
 }
 
 .headline{
-  width: 437px;
+  width: 537px;
   height: 207px;
   position: absolute;
   top: 75px;
-  left: 75px;
+  left: 45px;
 }
 
 h1{
@@ -589,7 +589,7 @@ h1 span{
   height: 48px;
   position: absolute;
   top: 340px;
-  left: 180px;
+  left: 210px;
   transition: background-color 0.5s;
 }
 
