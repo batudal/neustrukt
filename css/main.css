@@ -553,7 +553,7 @@ h1 span{
   width: 200px;
   height: 200px;
   justify-self: center;
-  grid-column: 1;
+  grid-column: 2;
   position: relative;
   top: 130px;
 }
