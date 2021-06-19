@@ -117,7 +117,7 @@ function mytext() {
 
 function s1() {
     let tl = gsap.timeline({
-        repeatDelay: 2.25,
+        repeatDelay: 4.25,
         repeat: -1,
     });
     tl.to(".s1", {y: -40, duration: 0.5}).to(".s1", {y: 0, duration: 0.5,delay:0.5});
@@ -126,7 +126,7 @@ function s1() {
 
   function s2() {
     let tl = gsap.timeline({
-        repeatDelay: 2.25,
+        repeatDelay: 4.25,
         repeat: -1,
     });
     tl.to(".s2", {x: 40, duration: 0.5}).to(".s2", {x: 0, duration: 0.5, delay:0.5});
@@ -135,7 +135,7 @@ function s1() {
 
   function s3() {
     let tl = gsap.timeline({
-        repeatDelay: 2.25,
+        repeatDelay: 4.25,
         repeat: -1,
     });
     tl.to(".s3", {y: 40, duration: 0.5}).to(".s3", {y: 0, duration: 0.5, delay:0.5});
@@ -144,7 +144,7 @@ function s1() {
 
   function s4() {
     let tl = gsap.timeline({
-        repeatDelay: 2.25,
+        repeatDelay: 4.25,
         repeat: -1,
     });
     tl.to(".s4", {x: -40, duration: 0.5}).to(".s4", {x: 0, duration: 0.5, delay:0.5});
@@ -154,7 +154,7 @@ function s1() {
   function cube() {
     let tl = gsap.timeline({
         repeat: -1,
-        repeatDelay: 0.25,
+        repeatDelay: 2.25,
         defaults: { // children inherit these defaults
             ease: "back.inOut"
         },
@@ -166,7 +166,7 @@ function s1() {
   function cube2() {
     let tl = gsap.timeline({
         repeat: -1,
-        repeatDelay: 0.25,
+        repeatDelay: 2.25,
     });
     tl.to(".wholecube", {scale: 0.8, duration: 1, delay:1.5, ease:"power1.in"}).to(".wholecube", {scale: 1, duration: 1,ease:"power1.out"});
     return tl;
@@ -264,3 +264,22 @@ card_side_4()
 card_corner_1()
 card_corner_2()
 card_corner_3()
+
+function radar() {
+  let tl = gsap.timeline({
+      repeatDelay: 1,
+      repeat: -1,
+      ease: "power1.inOut",
+  });
+  tl.to("#radar", {top: "20px", duration: 1})
+    .to("#radar", {opacity: 0.5, duration: 0.5,}).to("#radar", {opacity: 1, duration: 0.5,})
+    .to("#radar", {left: "20px", duration: 1})
+    .to("#radar", {opacity: 0.5, duration: 0.5,}).to("#radar", {opacity: 1, duration: 0.5,})
+    .to("#radar", {top: "100px",  duration: 1})
+    .to("#radar", {opacity: 0.5, duration: 0.5,}).to("#radar", {opacity: 1, duration: 0.5,})
+    .to("#radar", {left: "100px",  duration: 1})
+    .to("#radar", {opacity: 0.5, duration: 0.5,}).to("#radar", {opacity: 1, duration: 0.5,})
+  return tl;
+}
+
+radar()
