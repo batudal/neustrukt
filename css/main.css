@@ -85,7 +85,7 @@ h4{
 #team-cards-container{
   grid-column: 2;
   position: relative;
-  height: 900px;
+  height: 800px;
   width: 100%;
   display: grid;
   grid-template-columns: 4;
@@ -93,11 +93,45 @@ h4{
 }
 
 .team-card{
-  display: inline-block;
   height: 400px;
   width: 300px;
   background-color: var(--main-color);
   position: absolute;
+  display: grid;
+  grid-template-columns: 50px 200px 50px;
+  grid-template-rows: 40px 200px 160px;
+}
+
+#team-card-photo{
+  background-image: url(../img/wolf.jpg);
+  border-radius: 100px;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#team-card-1{
+  left: 0px;
+}
+#team-card-2{
+  left: 300px;
+}
+#team-card-3{
+  left: 600px;
+}
+#team-card-4{
+  left: 900px;
+}
+#team-card-5{
+  left:0px;
+  top: 400px;
+}
+#team-card-6{
+  left:300px;
+  top: 400px;
+}
+#team-card-7{
+  left:600px;
+  top: 400px;
 }
 
 #category-cards-container{
