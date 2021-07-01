@@ -76,7 +76,7 @@ h4{
 
 #team-section{
   position: relative;
-  height: 900px;
+  height: 800px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1200px 1fr;
@@ -95,15 +95,16 @@ h4{
 .team-card{
   height: 400px;
   width: 300px;
-  background-color: var(--main-color);
+  background-color: var(--white);
   position: absolute;
   display: grid;
   grid-template-columns: 50px 200px 50px;
-  grid-template-rows: 40px 200px 160px;
+  grid-template-rows: 40px 200px 40px 40px 80px;
 }
 
 #team-card-photo{
-  background-image: url(../img/wolf.jpg);
+  background-image: url(../img/mrwolf.jpg);
+  background-size: cover;
   border-radius: 100px;
   grid-column: 2;
   grid-row: 2;
@@ -132,6 +133,37 @@ h4{
 #team-card-7{
   left:600px;
   top: 400px;
+}
+
+#team-card-name{
+  grid-column: 2;
+  grid-row: 4;
+  text-align: center;
+}
+
+#team-card-name > h2{
+  font-size: 20px;
+}
+
+#team-card-title{
+  grid-column: 2;
+  grid-row: 5;
+  text-align: center;
+}
+
+#team-card-title > p{
+  font-size: 14px;
+  padding: 0px;
+}
+
+#team-section-header-container{
+  display: grid;
+  grid-template-rows: 70px 70px 70px;
+}
+
+#team-section-header{
+  text-align: center;
+  grid-row: 2;
 }
 
 #category-cards-container{
