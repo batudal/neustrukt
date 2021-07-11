@@ -1,75 +1,6 @@
-<!doctype html>
-<html class="no-js" lang="">
+{% extends 'layout.html' %}
 
-<head>
-  <meta charset="utf-8">
-  <title>Architecture for the New Era</title>
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="icon" href="favicon.ico" type="image/*" />
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900" type='text/css'>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-
-  <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
-    new Crate({
-      server: '847405250285273118', // Neustrukt
-      channel: '849640167182434395' // #💊support
-    })
-  </script>
-
-  <div id="header-cover"></div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
-
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js" defer> </script>
-  <script src="js/main.js" defer> </script>
-
-  <div class="navigation-bar">
-    <div class="logo">
-      <img src="./img/neulogo.png">
-    </div>
-    <div class="menu-container">
-      <div class="menu">
-        <div class="menu-item menu-item-1">
-          <a href="./store.html"><h3>Store</h3></a>
-        </div>
-        <div class="menu-item menu-item-2">
-          <a href="./contact.html"><h3>Contact</h3></a>
-        </div>
-        <div class="menu-item menu-item-3">
-          <a href="./career.html"><h3>Careers</h3></a>
-        </div>
-        <div class="menu-item menu-item-4">
-          <a href="https://neustrukt.medium.com/"><h3>Blog</h3></a>
-        </div>
-        <div class="menu-item menu-item-5">
-          <a href="./team.html"><h3>Team</h3></a>
-        </div>
-        <div class="menu-item menu-item-6" >
-          <a href="./mission.html"><h3>Mission</h3></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+{% block body %}
 
   <div class="hero-container">
     <div class="hero">
@@ -77,14 +8,13 @@
         <div class="headline">
           <h1><span>Modular</span><br/>architecture <br/>for the new era.</h1>
         </div>
-        <a href="./mission.html">
+        <a href="{{ url_for('mission') }}">
         <div class="button">
           <h2>Our Mission</h2>
         </div></a>
       </div>
     </div>
   </div>
-
 
   <div class="scroll-container">
     <div id="scroll-wrapper">
@@ -146,7 +76,7 @@
           </p>
         </div>
         <div id="card-4-bg">
-          <img src="./img/header_bg_right.png">
+          <img src="{{ url_for('static', filename='img/header_bg_right.png') }}">
         </div>
       </div>
     </div>
@@ -154,7 +84,7 @@
   <div class="tab" id="categories">
     <div id="category-cards-container">
       <div class="category-card" id="category-card-1">
-        <div id="card-img-container-1"><img src="./img/category_1.png"></div>
+        <div id="card-img-container-1"><img src="{{ url_for('static', filename='img/category_1.png') }}"></div>
         <div id="card-headline-container-1"><h2>Products</h2></div>
         <div id="card-paragraph-container-1">
           <p>Neustrukt offers eco-friendly product line blended with versatile design and futuristic components.</p>
@@ -162,7 +92,7 @@
         <div id="card-link-container-1"><h4>Visit online store</h4></div>
       </div>
       <div class="category-card" id="category-card-2">
-        <div id="card-img-container-2"><img src="img/category_2.png"></div>
+        <div id="card-img-container-2"><img src="{{ url_for('static', filename='img/category_2.png') }}"></div>
         <div id="card-headline-container-2"><h2>Designers</h2></div>
         <div id="card-paragraph-container-2">
           <p>Neustrukt's flexible building system is your new empty canvas to bring out your best work.</p>
@@ -170,7 +100,7 @@
         <div id="card-link-container-2"><h4>Join Neulab</h4></div>
       </div>
       <div class="category-card" id="category-card-3">
-        <div id="card-img-container-3"><img src="img/category_3.png"></div>
+        <div id="card-img-container-3"><img src="{{ url_for('static', filename='img/category_3.png') }}"></div>
         <div id="card-headline-container-3"><h2>Developers</h2></div>
         <div id="card-paragraph-container-3">
           <p>If you are a developer and want to transform your process to the next level with <a href="acm.html">ACM®.</a></p>
@@ -180,39 +110,4 @@
     </div>
   </div>
 
-
-  <div class="footer">
-    <div id="footer-form-container">
-      <h2>Get informed of new products and services before <span>everyone else</span>.</h2>
-      <div id="footer-form-item"><h2>Enter your email</h2></div>
-      <div id="footer-form-button"><h2>Subscribe</h2></div>
-    </div>
-    <div id="footer-img-container"></div>
-  </div>
-
-  <!-- <div id="hero-bg-container"></div> -->
-  <!-- <div id="cookie-disclaimer">
-    <div id="cookie-text-container"></div>
-    <div id="cookie-button-1"><h2>Accept</h2></div>
-    <div id="cookie-button-2"><h2>Decline</h2></div>
-  </div> -->
-
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- <script src="js/vendor/three.js"></script>
-  <script type="module" src="js/vendor/OrbitControls.js"></script>
-  <script type="module" src="js/vendor/GLTFLoader.js"></script>
-  <script type="module" src="js/3dmodel.js"></script> -->
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-
-</body>
-
-</html>
+{% endblock %}

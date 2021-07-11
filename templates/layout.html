@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Architecture for the New Era</title>
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="icon" href="favicon.ico" type="image/*" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900" type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+  <meta name="theme-color" content="#fafafa">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
+
+  <script src="{{ url_for('static', filename='js/vendor/modernizr-3.11.2.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/plugins.js') }}" defer> </script>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer> </script>
+
+  <div class="navigation-bar">
+    <div class="logo">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='img/neulogo.png') }}" >
+        </a>
+    </div>
+    <div class="menu-container">
+      <div class="menu">
+        <div class="menu-item menu-item-1">
+          <a href="{{ url_for('store') }}"><h3>Store</h3></a>
+        </div>
+        <div class="menu-item menu-item-2">
+          <a href="{{ url_for('contact') }}"><h3>Contact</h3></a>
+        </div>
+        <div class="menu-item menu-item-3">
+          <a href="{{ url_for('careers') }}"><h3>Careers</h3></a>
+        </div>
+        <div class="menu-item menu-item-4">
+          <a href="https://neustrukt.medium.com/"><h3>Blog</h3></a>
+        </div>
+        <div class="menu-item menu-item-5">
+          <a href="{{ url_for('team') }}"><h3>Team</h3></a>
+        </div>
+        <div class="menu-item menu-item-6" >
+          <a href="{{ url_for('mission') }}"><h3>Mission</h3></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% block body %}
+
+  {% endblock %}
+
+  <div class="footer">
+    <div id="footer-form-container">
+      <h2>Get informed of new products and services before <span>everyone else</span>.</h2>
+      <form action="/submitted" method="POST">
+        <div id="footer-form-item"><input type="email" placeholder="Please enter your email" /></div>
+        <div id="footer-form-button"><button type="submit">Subscribe</button></div>
+      </form>
+    </div>
+    <div id="footer-img-container"></div>
+  </div>
+
+  <!-- <div id="hero-bg-container"></div> -->
+  <!-- <div id="cookie-disclaimer">
+    <div id="cookie-text-container"></div>
+    <div id="cookie-button-1"><h2>Accept</h2></div>
+    <div id="cookie-button-2"><h2>Decline</h2></div>
+  </div> -->
+
+  <!-- <script src="js/vendor/three.js"></script>
+  <script type="module" src="js/vendor/OrbitControls.js"></script>
+  <script type="module" src="js/vendor/GLTFLoader.js"></script>
+  <script type="module" src="js/3dmodel.js"></script> -->
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <!-- <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script> -->
+
+</body>
+
+</html>
