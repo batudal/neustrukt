@@ -13,7 +13,7 @@
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="icon" href="favicon.ico" type="image/*" />
+  <link rel="icon" href="{{ url_for('static', filename='ornaments/favicon.ico') }}" type="image/*" />
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900" type='text/css'>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
@@ -28,6 +28,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 
   <script src="{{ url_for('static', filename='js/vendor/modernizr-3.11.2.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/plugins.js') }}" defer> </script>
@@ -96,6 +98,17 @@
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script> -->
+
+  <script>
+    $(document).ready(function() {
+        $("a.scrollLink").click(function(event) {
+            event.preventDefault();
+            $("html, body").animate({
+                scrollTop: $($(this).attr("href")).offset().top
+              }, 1500);
+          });
+      });
+  </script>
 
 </body>
 
