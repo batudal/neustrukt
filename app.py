@@ -1,10 +1,11 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from notion.client import NotionClient
+import os
 
-notion_token = '8bc59baf563c9bd5fa7a4def5c1bb825520a326d6cfe381e16a4d3281e911f92545dc570554a6f0d81b50f3542984a48329b3fdd4e8959b30f4916c4438f1156ad5187a4c6396b073dafc3dfa1b9'
+notion_token = os.environ["NOTION_TOKEN"]
 client = NotionClient(token_v2=notion_token)
-sub_list_url = 'https://www.notion.so/neustrukt/ee79020c228647a79ff734f224169eb4?v=46bff5efe1d442c6befc75853a72e356'
+sub_list_url = os.environ["NOTION_SUBS_PAGE"]
 collection_view = client.get_collection_view(sub_list_url)
 
 app = Flask(__name__)
