@@ -301,7 +301,7 @@ button {
 }
 
 #footer-form-item{
-  display: inline-block;
+  display: inline-flex;
   border-radius: 20px;
   height: 48px;
   width: 500px;
@@ -309,10 +309,11 @@ button {
 }
 
 #footer-form-button{
-  display: inline-block;
+  display: inline-flex;
   width: 160px;
   grid-row: 2;
   height: 48px;
+  float: right;
 }
 
 #footer-form-button > h2{
@@ -555,59 +556,6 @@ button {
   left: 200px;
   border-radius: 20px;
   box-shadow: 0px 0px 25px 10px rgba(33, 33, 33, 0.05);   
-}
-
-
-.toggle{
-  background-color: var(--black);
-  border-radius: 10px;
-  width: 40px;
-  height: 20px;
-  position: relative;
-  float: right;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.toggle-button{
-  position: absolute;
-  background-color: var(--main-color);
-  height: 14px;
-  width: 14px;
-  border-radius: 10px;
-  top: 3px;
-  left: 3px;
-}
-
-#hamburger{
-  height: 40px;
-  width: 40px;
-  position: relative;
-  display:none;
-  margin-right: 20px;
-  justify-self: end;
-}
-
-.hamburger-line{
-  background-color: var(--white);
-  width:24px;
-  height: 3px;
-  position:absolute;
-}
-
-#hamburger-line-1{
-  top: 9px;
-  left: 8px;
-}
-
-#hamburger-line-2{
-  top: 18px;
-  left: 8px;
-}
-
-#hamburger-line-3{
-  top: 27px;
-  left: 8px;
 }
 
 .menu-item h3{

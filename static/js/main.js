@@ -95,25 +95,26 @@ gsap.to("#scroll-3", {
 //   },
 // });
 
-gsap.fromTo(".headline-container",{x: 45},{x:0, duration:1, ease:"power1.out"});
-gsap.fromTo(".wholecube",{x: -45},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".hero-img",{x: 25},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".hero-content",{x: -25},{x:0, duration:1, ease:"power1.out"});
+// gsap.fromTo(".wholecube",{x: -45},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".button",{opacity: 0},{opacity:1, duration:2, delay:0.25, ease:"power1.inOut"});
-gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:1, delay:1});
+// gsap.fromTo(".navigation-bar", {opacity:0},{opacity:1, duration:1, delay:1});
 
-function mytext() {
-  let tl = gsap.timeline({
-    repeat: -1,
-  });
-  tl.to(".headline h1 span", {text: "", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "Scalable", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "Sustainable", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "Accessible", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "", duration: 1, delay:1})
-  .to(".headline h1 span", {text: "Modular", duration: 1, delay:1});
-  return tl;
-};
+// function mytext() {
+//   let tl = gsap.timeline({
+//     repeat: -1,
+//   });
+//   tl.to(".headline h1 span", {text: "", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "Scalable", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "Sustainable", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "Accessible", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "", duration: 1, delay:1})
+//   .to(".headline h1 span", {text: "Modular", duration: 1, delay:1});
+//   return tl;
+// };
 
 function s1() {
     let tl = gsap.timeline({
@@ -178,7 +179,7 @@ s3()
 s4()
 cube()
 cube2()
-mytext()
+// mytext()
 
 function card_side_1() {
   let tl = gsap.timeline({
