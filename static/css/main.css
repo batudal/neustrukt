@@ -674,8 +674,8 @@ button {
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1fr 1000px 1fr;
-  grid-template-rows: 100px 500px 100px;
+  grid-template-columns: 1fr 1400px 1fr;
+  grid-template-rows: 50px 600px 50px;
   position: relative;
   width: 100%;
   height: 700px;
@@ -684,19 +684,53 @@ button {
 .hero{
   grid-column: 2;
   grid-row: 2;
-  /* justify-items: center;
-  justify-content: center; */
-  padding: 20px;
   display:grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 40px 701px 639px 20px;
+  grid-template-rows: 92px 416px 92px;
 }
 
-.headline-container{
+.hero-img{
+  background-image:url(../img/hero_illustration.png);
+  height: 100%;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  z-index:0;
+  grid-column: 3;
+  grid-row:2;
+}
+
+.hero-content{
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.hero-content > h1 {
+  font-size: 44px;
+  width: 625px;
+  padding: 20px;
+}
+
+.hero-content > p{
+  font-size: 24px;
+  width: 574px;
+  padding: 20px;
+}
+
+.hero-content > a > button{
+  width: 250px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+
+/* .headline-container{
   position:relative;
   grid-column: 1;
   top: 0px;
   left: 160px;
-  /* width:100%; */
 }
 
 .headline{
@@ -705,7 +739,7 @@ button {
   position: absolute;
   top: 75px;
   left: 45px;
-}
+} */
 
 h1{
   font-family: Inter;
