@@ -11,7 +11,7 @@ collection_view = client.get_collection_view(sub_list_url)
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL?sslmode=require').replace('postgres://', 'postgresql://')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"].replace('postgres://', 'postgresql://')
 db = SQLAlchemy(app)
 
 class Subscribers(db.Model):
