@@ -6,6 +6,9 @@
     <div id="footer-form-container">
       <h2>You're now subscribed to our newsletter.</h2>
       <a href="/"><p>Go homepage</p></a>
+      {% for sub in subs %}
+        <p>{{ sub }}</p>
+      {% endfor %}
     </div>
     <div id="footer-img-container"></div>
   </div>
