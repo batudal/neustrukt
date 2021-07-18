@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from notion.client import NotionClient
 import os
 
+## notion stuff
 notion_token = os.environ["NOTION_TOKEN"]
 client = NotionClient(token_v2=notion_token)
 sub_list_url = os.environ["NOTION_SUBS_PAGE"]
@@ -10,7 +11,7 @@ collection_view = client.get_collection_view(sub_list_url)
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
 db = SQLAlchemy(app)
 
 class Subscribers(db.Model):
@@ -53,11 +54,8 @@ def submitted():
 
         subs = Subscribers.query.order_by(Subscribers.id).all()
 
-        sub_id = new_sub.id
-        sub_email = new_sub.email
-
         try:
-            updateNotion(sub_id,sub_email)
+            updateNotion(new_sub.id,new_sub.email)
         except:
             "notion failed"
 
