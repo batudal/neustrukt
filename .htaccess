@@ -1224,5 +1224,5 @@ FileETag None
 # </IfModule>
 
 RewriteEngine on
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTPS_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTPS_HOST}/$1 [R=301,L]
