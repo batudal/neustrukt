@@ -62,7 +62,6 @@ input[type=email] {
   padding-left: 20px;
   height: 48px;
   width: 500px;
-  border: 0;
   font-family: Inter;
   font-size: 18px;
   color: var(--black);
@@ -78,7 +77,6 @@ input[type=text] {
   padding-left: 20px;
   height: 48px;
   width: 500px;
-  border: 0;
   font-family: Inter;
   font-size: 18px;
   color: var(--black);
@@ -226,11 +224,12 @@ h5 > span{
   grid-template-columns: 1fr;
 }
 
-/* #contact-footer{
+#contact-footer{
   position: absolute;
-  top: -200px;
+  top: 900px;
+  width: 100%;
   z-index: -1;
-} */
+}
 
 .contact-card-name-container{
   grid-row:1;
@@ -288,6 +287,10 @@ input[type=email]:focus {
 }
 
 input[type=text]:focus {
+  border-color: var(--main-color);
+}
+
+textarea:focus{
   border-color: var(--main-color);
 }
 
@@ -478,8 +481,7 @@ button {
 .footer{
   height: 800px;
   position: relative;
-  top: 100px;
-  z-index: -1;
+  top: 50px;
   display: grid;
   grid-template-columns: 1fr 800px 1fr;
   grid-template-rows: 1fr;

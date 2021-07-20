@@ -98,6 +98,15 @@ gsap.to("#scroll-3", {
 gsap.fromTo(".hero-img",{x: 25},{x:0, duration:1, ease:"power1.out"});
 gsap.fromTo(".hero-content",{x: -25},{x:0, duration:1, ease:"power1.out"});
 
+gsap.from(".category-card", {
+  scrollTrigger: ".category-card",
+  y: 30,
+  opacity: 0.8  ,
+  duration: 0.8,
+  stagger: 0.2,
+  ease: "power1.out",
+});
+
 // function mytext() {
 //   let tl = gsap.timeline({
 //     repeat: -1,
