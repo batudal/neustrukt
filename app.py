@@ -19,6 +19,14 @@ class Subscribers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), nullable=False)
 
+class Messages(db.Model):
+    __tablename__ = 'messages'
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(120), nullable=False)
+    lastname = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.String(1024), nullable=False)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -31,9 +39,26 @@ def team():
 def store():
     return render_template('store.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET','POST'])
 def contact():
-    return render_template('contact.html')
+
+    if request.method == 'GET':
+        return render_template('contact.html')
+    else:
+        users_firstname = request.form['firstname']
+        users_lastname = request.form['lastname']
+        users_email = request.form['email']
+        users_message = request.form['message']
+
+        new_message = Messages(firstname=users_firstname, lastname=users_lastname, email=users_email, message=users_message)
+
+        try:
+            db.session.add(new_message)
+            db.session.commit()
+
+            return redirect('/')
+        except:
+            "Problemss"
 
 @app.route('/careers')
 def careers():
