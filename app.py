@@ -7,7 +7,9 @@ import os
 notion_token = os.environ["NOTION_TOKEN"]
 client = NotionClient(token_v2=notion_token)
 sub_list_url = os.environ["NOTION_SUBS_PAGE"]
+messages_url = os.environ["NOTION_MESSAGES_PAGE"]
 collection_view = client.get_collection_view(sub_list_url)
+messages_view = client.get_collection_view(messages_url)
 
 app = Flask(__name__)
 
@@ -56,6 +58,11 @@ def contact():
             db.session.add(new_message)
             db.session.commit()
 
+            try:
+                updateNotionMessages(new_message.id, new_message.firstname, new_message.lastname, new_message.email, new_message.message)
+            except:
+                "notion failed"
+
             return redirect('/')
         except:
             "Problemss"
@@ -91,9 +98,17 @@ def submitted():
 
 def updateNotion(id,email):
     new_row = collection_view.collection.add_row()
-    print(id,email)
     new_row.id = str(id)
     new_row.email = str(email)
+
+def updateNotionMessages(id, firstname, lastname, email, message):
+    new_row = messages_view.collection.add_row()
+    new_row.id = str(id)
+    new_row.firstname = str(firstname)
+    new_row.lastname = str(lastname)
+    new_row.email = str(email)
+    new_row.message = str(message)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
