@@ -13,6 +13,7 @@ messages_view = client.get_collection_view(messages_url)
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"].replace('postgres://', 'postgresql://')
 db = SQLAlchemy(app)
 

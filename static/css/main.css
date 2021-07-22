@@ -109,7 +109,7 @@ textarea{
   width: 100%;
   height: 1142px;
   display: grid;
-  grid-template-rows: 100px 22px 20px 53px 40px 44px 100px 763px;
+  grid-template-rows: 60px 22px 20px 53px 40px 44px 100px 763px;
   grid-template-columns: 1fr 500px 1fr;
   align-items: center;
   justify-content: center;
