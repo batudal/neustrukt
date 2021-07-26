@@ -95,8 +95,8 @@ gsap.to("#scroll-3", {
 //   },
 // });
 
-gsap.fromTo(".hero-img",{x: 25},{x:0, duration:1, ease:"power1.out"});
-gsap.fromTo(".hero-content",{x: -25},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".hero-img",{x: 15},{x:0, duration:1, ease:"power1.out"});
+gsap.fromTo(".hero-content",{x: -15},{x:0, duration:1, ease:"power1.out"});
 
 gsap.from(".category-card", {
   scrollTrigger: ".category-card",

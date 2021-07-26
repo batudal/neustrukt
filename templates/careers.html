@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="career-section">
+    <div class="contact-section-h5-container">
+        <h5>EXCITED?</h5>
+    </div>
+    <div class="contact-section-h1-container">
+        <h1>Join Neustrukt</h1>
+    </div>
+    <div class="contact-section-text-container">
+        <p>If you share the same passion towards creating an open source building system, let us hear from you.</p>
+    </div>
+    
+    <form action="/contact" method="POST" class="career-section-card-container">
+        <div class="contact-card-name-container">
+            <div class="contact-card-firstname">
+                <h5 class="is-black">FIRST NAME<span>*</span></h5>
+            </div>
+            <div class="contact-card-firstname-input">
+                <input type="text" name="firstname" id="firstname" placeholder="" >
+            </div>
+            <div class="contact-card-lastname">
+                <h5 class="is-black">LAST NAME<span>*</span></h5>
+            </div>
+            <div class="contact-card-lastname-input">
+                <input type="text" name="lastname" id="lastname" placeholder="" >
+            </div>
+        </div>
+        <div class="contact-card-email-container">
+            <div class="contact-card-email">
+                <h5 class="is-black">EMAIL<span>*</span></h5>
+            </div>
+            <div class="contact-card-email-input">
+                <input type="email" name="email" id="email" placeholder="" >
+            </div>
+        </div>
+        <div class="career-card-profession-container">
+            <div class="contact-card-email">
+                <h5 class="is-black">PROFESSION<span>*</span></h5>
+            </div>
+            <div class="dropdown">
+                <select multiple id="mymultiselect" name="mymultiselect" style="display:none">       
+                </select>
+                <button disabled class="dropbtn">Choose profession</button>
+                <div class="dropdown-content">
+                  {% for job in jobs %}
+                  <a notarget class="dropdown-item">{{ job }}</a>
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="career-card-cv-container">
+            <div class="contact-card-email">
+                <h5 class="is-black">CV/PORTFOLIO<span>*</span></h5>
+            </div>
+            <div class="career-card-cv-input">
+                <input class="file-name" type="text" name="cv" id="cv" placeholder="No file selected." disabled>
+            </div>
+            <div class="secondary-button">
+                <input type="file" id="file" class="file" accept=".pdf">
+                <label for="file">Select file</label>
+            </div>
+        </div>
+        <div class="career-card-message-container">
+            <div class="contact-card-message">
+                <h5 class="is-black">MESSAGE<span>*</span></h5>
+            </div>
+            <div class="contact-card-message-input">
+                <textarea name="message" id="message" rows="10" cols="25" placeholder="Please briefly tell about why you’d like to work with us."></textarea>
+            </div>
+        </div>
+        <div class="career-card-button-container">
+            <button type="submit">Send application</button>
+        </div>
+    </form>    
+</div>
+
+<div class="footer" id="contact-footer">
+    <div id="footer-img-container"></div>
+</div>
+
+<script>
+
+    $('a.dropdown-item').click(function() {
+        const val = $(this).html();
+        $("button.dropbtn").html(val);
+        $("select#mymultiselect").html(val);
+    });
+    
+</script>
+
+<script>
+    const file = document.querySelector('#file');
+    file.addEventListener('change', (e) => {
+        const [file] = e.target.files;
+        const { name: fileName, size } = file;
+
+        $(".file-name").attr("placeholder",fileName);
+    });
+</script>
+
+{% endblock %}
