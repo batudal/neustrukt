@@ -13,7 +13,7 @@
         <p>If you share the same passion towards creating an open source building system, let us hear from you.</p>
     </div>
     
-    <form action="/careers" method="POST" class="career-section-card-container">
+    <form action="/careers" method="POST" class="career-section-card-container" enctype="multipart/form-data">
         <div class="contact-card-name-container">
             <div class="contact-card-firstname">
                 <h5 class="is-black">FIRST NAME<span>*</span></h5>
@@ -41,8 +41,17 @@
                 <h5 class="is-black">PROFESSION<span>*</span></h5>
             </div>
             <div class="dropdown">
-                <select multiple id="mymultiselect" name="mymultiselect" style="display:none">       
-                </select>
+                <input name="profession" style="display:none" id="profession"> 
+                    <!-- <option value="Architect">Architect</option>
+                    <option value='Interior Architect'>Interior Architect</option>
+                    <option value="Industrial Designer">Industrial Designer</option>
+                    <option value="Graphic Designer">Graphic Designer</option>
+                    <option value="Digital Marketer">Digital Marketer</option>
+                    <option value="Content Producer">Content Producer</option>
+                    <option value="Structural Engineer">Structural Engineer</option>
+                    <option value="Mechanical Engineer">Mechanical Engineer</option>
+                    <option value="Supply Chain Specialist">Supply Chain Specialist</option> -->
+                </input>
                 <button disabled class="dropbtn">Choose profession</button>
                 <div class="dropdown-content">
                   {% for job in jobs %}
@@ -59,7 +68,7 @@
                 <input class="file-name" type="text" name="cv" id="cv" placeholder="No file selected." disabled>
             </div>
             <div class="secondary-button">
-                <input type="file" id="file" class="file" accept=".pdf">
+                <input type="file" id="file" class="file">
                 <label for="file">Select file</label>
             </div>
         </div>
@@ -86,7 +95,7 @@
     $('a.dropdown-item').click(function() {
         const val = $(this).html();
         $("button.dropbtn").html(val);
-        $("select#mymultiselect").html(val);
+        $("input#profession").attr("value", val);
     });
     
 </script>

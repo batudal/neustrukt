@@ -92,11 +92,13 @@ def careers():
     if request.method == 'GET':
         return render_template('careers.html', jobs=jobs)
     else:
+        print(request.form)
+        print(request.files)
         users_firstname = request.form['firstname']
         users_lastname = request.form['lastname']
         users_email = request.form['email']
         users_profession = request.form['profession']
-        users_cv = request.files['cv']
+        # users_cv = request.files['files']
         users_message = request.form['message']
 
         new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message)
@@ -163,6 +165,7 @@ def updateNotionApplications(id, firstname, lastname, email, profession, message
     new_row.email = str(email)
     new_row.profession = str(profession)
     new_row.message = str(message)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
