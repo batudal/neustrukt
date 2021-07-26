@@ -2,6 +2,18 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from notion.client import NotionClient
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+app = Flask(__name__)
+
+# app.config['UPLOAD_PATH'] = 'uploads'
+# app.config['UPLOAD_EXTENSIONS'] = '.pdf'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"].replace('postgres://', 'postgresql://')
+
+db = SQLAlchemy(app)
 
 jobs = ['Architect', 'Interior Architect', 'Industrial Designer', 'Graphic Designer', 'Digital Marketer', 'Content Producer', 'Structural Engineer', 'Mechanical Engineer', 'Supply Chain Specialist']
 
@@ -16,15 +28,6 @@ client = NotionClient(token_v2=notion_token)
 collection_view = client.get_collection_view(sub_list_url)
 messages_view = client.get_collection_view(messages_url)
 applications_view = client.get_collection_view(app_list_url)
-
-app = Flask(__name__)
-
-# app.config['UPLOAD_PATH'] = 'uploads'
-# app.config['UPLOAD_EXTENSIONS'] = '.pdf'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"].replace('postgres://', 'postgresql://')
-
-db = SQLAlchemy(app)
 
 class Subscribers(db.Model):
     __tablename__ = 'subscribers'
