@@ -101,8 +101,8 @@ def careers():
 
         new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message)
 
-        if users_cv.filename != '':            
-            users_cv.save("{0} {1} - {2}".format(users_firstname,users_lastname,users_cv.filename))
+        # if users_cv.filename != '':            
+        #     users_cv.save("{0} {1} - {2}".format(users_firstname,users_lastname,users_cv.filename))
 
         try:
             db.session.add(new_application)
