@@ -89,7 +89,7 @@ def contact():
 def careers():
 
     if request.method == 'GET':
-        return render_template('careers.html')
+        return render_template('careers.html', jobs=jobs)
     else:
         users_firstname = request.form['firstname']
         users_lastname = request.form['lastname']
@@ -106,7 +106,7 @@ def careers():
         try:
             db.session.add(new_application)
             db.session.commit()
-
+  
             try:
                 updateNotionApplications(new_application.id, new_application.firstname, new_application.lastname, new_application.email, new_application.profession,new_application.message)
             except:
@@ -115,8 +115,6 @@ def careers():
             return redirect('/')
         except:
             "Problemss"
-
-    return render_template('careers.html', jobs = jobs)
 
 @app.route('/mission')
 def mission():
