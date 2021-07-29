@@ -68,8 +68,8 @@
                 <input class="file-name" type="text" name="cv" id="cv" placeholder="No file selected." disabled>
             </div>
             <div class="secondary-button">
-                <input type="file" id="file" class="file">
-                <label for="file">Select file</label>
+                <input type="file" id="file_name" class="file">
+                <label for="file_name">Select file</label>
             </div>
         </div>
         <div class="career-card-message-container">
@@ -100,12 +100,26 @@
     
 </script>
 
+<!-- <script>
+    (function() {
+  document.getElementById("file_input").onchange = function(){
+    var files = document.getElementById("file_input").files;
+    var file = files[0];
+    if(!file){
+      return alert("No file selected.");
+    }
+    getSignedRequest(file);
+  };
+})();
+</script> -->
+
 <script>
-    const file = document.querySelector('#file');
+    const file = document.querySelector('#file_name');
     file.addEventListener('change', (e) => {
         const [file] = e.target.files;
         const { name: fileName, size } = file;
-
+        getSignedRequest(file);
+        console.log(fileName);
         $(".file-name").attr("placeholder",fileName);
     });
 </script>

@@ -2,6 +2,9 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from notion.client import NotionClient
 import os
+import boto3
+from werkzeug.utils import secure_filename
+import json
 
 app = Flask(__name__)
 
@@ -25,6 +28,9 @@ client = NotionClient(token_v2=notion_token)
 collection_view = client.get_collection_view(sub_list_url)
 messages_view = client.get_collection_view(messages_url)
 applications_view = client.get_collection_view(app_list_url)
+
+#aws
+S3_BUCKET = os.environ.get('S3_BUCKET')
 
 class Subscribers(db.Model):
     __tablename__ = 'subscribers'
@@ -165,6 +171,31 @@ def updateNotionApplications(id, firstname, lastname, email, profession, message
     new_row.email = str(email)
     new_row.profession = str(profession)
     new_row.message = str(message)
+
+@app.route('/sign_s3/')
+def sign_s3():
+
+  file_name = request.args.get('file_name')
+  file_type = request.args.get('file_type')
+
+  s3 = boto3.client('s3')
+
+  presigned_post = s3.generate_presigned_post(
+    Bucket = S3_BUCKET,
+    Key = file_name,
+    Fields = {"acl": "public-read", "Content-Type": file_type},
+    Conditions = [
+      {"acl": "public-read"},
+      {"Content-Type": file_type}
+    ],
+    ExpiresIn = 3600
+  )
+  print("signed!")
+
+  return json.dumps({
+    'data': presigned_post,
+    'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
+  })
 
 
 if __name__ == "__main__":
