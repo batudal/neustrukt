@@ -56,6 +56,7 @@ class Applications(db.Model):
     lastname = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     profession =  db.Column(db.String(120), nullable=False)
+    cv_url = db.Column(db.String(1024))
     message = db.Column(db.String(1024), nullable=False)
 
 @app.route('/')
@@ -104,15 +105,17 @@ def careers():
         return render_template('careers.html', jobs=jobs)
     else:
         print(request.form)
-        print(request.files)
+ 
         users_firstname = request.form['firstname']
         users_lastname = request.form['lastname']
         users_email = request.form['email']
         users_profession = request.form['profession']
-        # users_cv = request.files['files']
+        users_cv = request.form['file-url']
         users_message = request.form['message']
 
-        new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message)
+        new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message, cv_url=users_cv)
+
+        print(new_application)
 
         # if users_cv.filename != '':            
         #     users_cv.save("{0} {1} - {2}".format(users_firstname,users_lastname,users_cv.filename))
@@ -122,7 +125,7 @@ def careers():
             db.session.commit()
   
             try:
-                updateNotionApplications(new_application.id, new_application.firstname, new_application.lastname, new_application.email, new_application.profession,new_application.message)
+                updateNotionApplications(new_application.id, new_application.firstname, new_application.lastname, new_application.email, new_application.profession,new_application.message, new_application.cv_url)
             except:
                 "notion failed"
 
@@ -168,7 +171,7 @@ def updateNotionMessages(id, firstname, lastname, email, message):
     new_row.email = str(email)
     new_row.message = str(message)
 
-def updateNotionApplications(id, firstname, lastname, email, profession, message):
+def updateNotionApplications(id, firstname, lastname, email, profession, message, cv_url):
     new_row = applications_view.collection.add_row()
     new_row.id = str(id)
     new_row.firstname = str(firstname)
@@ -176,6 +179,7 @@ def updateNotionApplications(id, firstname, lastname, email, profession, message
     new_row.email = str(email)
     new_row.profession = str(profession)
     new_row.message = str(message)
+    new_row.cv = str(cv_url)
 
 @app.route('/sign_s3/')
 def sign_s3():
@@ -200,9 +204,6 @@ def sign_s3():
     ],
     ExpiresIn = 3600
   ) 
-  print("signed!")
-  print(file_name)
-  print('https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name))
 
   return json.dumps({
     'data': presigned_post,
