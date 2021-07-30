@@ -113,15 +113,4 @@
 })();
 </script> -->
 
-<script>
-    const file = document.querySelector('#file_name');
-    file.addEventListener('change', (e) => {
-        const [file] = e.target.files;
-        const { name: fileName, size } = file;
-        getSignedRequest(file);
-        console.log(fileName);
-        $(".file-name").attr("placeholder",fileName);
-    });
-</script>
-
 {% endblock %}

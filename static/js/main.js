@@ -291,6 +291,15 @@ function radar() {
 
 radar()
 
+const file = document.querySelector('#file_name');
+file.addEventListener('change', (e) => {
+    const [file] = e.target.files;
+    const { name: fileName, size } = file;
+    getSignedRequest(file);
+    console.log(fileName);
+    $(".file-name").attr("placeholder",fileName);
+});
+
 function getSignedRequest(file){
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "/sign_s3?file_name="+file.name+"&file_type="+file.type);
@@ -298,7 +307,8 @@ function getSignedRequest(file){
     if(xhr.readyState === 4){
       if(xhr.status === 200){
         var response = JSON.parse(xhr.responseText);
-        uploadFile(file, response.data, response.url);
+        console.log(response)
+        uploadFile(file = file, s3Data = response.data, url = response.url);
       }
       else{
         alert("Could not get signed URL.");
@@ -315,18 +325,21 @@ function uploadFile(file, s3Data, url){
   var postData = new FormData();
   for(key in s3Data.fields){
     postData.append(key, s3Data.fields[key]);
-  }
+    console.log(postData[-1]);
+  };
   postData.append('file', file);
 
   xhr.onreadystatechange = function() {
     if(xhr.readyState === 4){
+      console.log(xhr.status);
       if(xhr.status === 200 || xhr.status === 204){
-        document.getElementById("cv").placeholder = file.name;
+        
+        document.getElementById("cv").placeholder = url;
       }
       else{
         alert("Could not upload file.");
-      }
-   }
+      };
+   };
   };
   xhr.send(postData);
 }

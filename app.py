@@ -5,13 +5,13 @@ import os
 import boto3
 from werkzeug.utils import secure_filename
 import json
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+
 CORS(app)
 
-# app.config['UPLOAD_PATH'] = 'uploads'
-# app.config['UPLOAD_EXTENSIONS'] = '.pdf'
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"].replace('postgres://', 'postgresql://')
 
@@ -33,6 +33,8 @@ applications_view = client.get_collection_view(app_list_url)
 
 #aws
 S3_BUCKET = os.environ.get('S3_BUCKET')
+S3_KEY = os.environ.get('AWS_ACCESS_KEY_ID')
+S3_SECRET = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 class Subscribers(db.Model):
     __tablename__ = 'subscribers'
@@ -95,6 +97,7 @@ def contact():
             "Problemss"
 
 @app.route('/careers', methods=['GET','POST'])
+@cross_origin()
 def careers():
 
     if request.method == 'GET':
@@ -178,9 +181,14 @@ def updateNotionApplications(id, firstname, lastname, email, profession, message
 def sign_s3():
 
   file_name = request.args.get('file_name')
+  file_name = secure_filename(file_name)
   file_type = request.args.get('file_type')
 
-  s3 = boto3.client('s3')
+  s3 = boto3.client(
+      's3',
+      aws_access_key_id = S3_KEY,
+      aws_secret_access_key = S3_SECRET,
+      region_name = 'us-east-2')
 
   presigned_post = s3.generate_presigned_post(
     Bucket = S3_BUCKET,
@@ -191,14 +199,15 @@ def sign_s3():
       {"Content-Type": file_type}
     ],
     ExpiresIn = 3600
-  )
+  ) 
   print("signed!")
+  print(file_name)
+  print('https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name))
 
   return json.dumps({
     'data': presigned_post,
     'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
   })
-
 
 if __name__ == "__main__":
     app.run(debug=True)
