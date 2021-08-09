@@ -56,7 +56,7 @@ class Applications(db.Model):
     lastname = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     profession =  db.Column(db.String(120), nullable=False)
-    cv_url = db.Column(db.String(1024))
+    cv_url = db.Column(db.String(1024), nullable=False)
     message = db.Column(db.String(1024), nullable=False)
 
 @app.route('/')
@@ -114,8 +114,6 @@ def careers():
         users_message = request.form['message']
 
         new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message, cv_url=users_cv)
-
-        print(new_application)
 
         # if users_cv.filename != '':            
         #     users_cv.save("{0} {1} - {2}".format(users_firstname,users_lastname,users_cv.filename))
