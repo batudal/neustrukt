@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-from notion.client import NotionClient
+# from notion.client import NotionClient
 import os
 import boto3
 from werkzeug.utils import secure_filename
@@ -20,16 +20,16 @@ db = SQLAlchemy(app)
 jobs = ['Architect', 'Interior Architect', 'Industrial Designer', 'Graphic Designer', 'Digital Marketer', 'Content Producer', 'Structural Engineer', 'Mechanical Engineer', 'Supply Chain Specialist']
 
 ## notion stuff
-notion_token = os.environ["NOTION_TOKEN"]
-sub_list_url = os.environ["NOTION_SUBS_PAGE"]
-messages_url = os.environ["NOTION_MESSAGES_PAGE"]
-app_list_url = os.environ["NOTION_APPLICATIONS_PAGE"]
+# notion_token = os.environ["NOTION_TOKEN"]
+# sub_list_url = os.environ["NOTION_SUBS_PAGE"]
+# messages_url = os.environ["NOTION_MESSAGES_PAGE"]
+# app_list_url = os.environ["NOTION_APPLICATIONS_PAGE"]
 
-client = NotionClient(token_v2=notion_token)
+# client = NotionClient(token_v2=notion_token)
 
-collection_view = client.get_collection_view(sub_list_url)
-messages_view = client.get_collection_view(messages_url)
-applications_view = client.get_collection_view(app_list_url)
+# collection_view = client.get_collection_view(sub_list_url)
+# messages_view = client.get_collection_view(messages_url)
+# applications_view = client.get_collection_view(app_list_url)
 
 #aws
 S3_BUCKET = os.environ.get('S3_BUCKET')
@@ -88,10 +88,10 @@ def contact():
             db.session.add(new_message)
             db.session.commit()
 
-            try:
-                updateNotionMessages(new_message.id, new_message.firstname, new_message.lastname, new_message.email, new_message.message)
-            except:
-                "notion failed"
+            # try:
+            #     updateNotionMessages(new_message.id, new_message.firstname, new_message.lastname, new_message.email, new_message.message)
+            # except:
+            #     "notion failed"
 
             return redirect('/')
         except:
@@ -122,10 +122,10 @@ def careers():
             db.session.add(new_application)
             db.session.commit()
   
-            try:
-                updateNotionApplications(new_application.id, new_application.firstname, new_application.lastname, new_application.email, new_application.profession,new_application.message, new_application.cv_url)
-            except:
-                "notion failed"
+            # try:
+            #     updateNotionApplications(new_application.id, new_application.firstname, new_application.lastname, new_application.email, new_application.profession,new_application.message, new_application.cv_url)
+            # except:
+            #     "notion failed"
 
             return redirect('/')
         except:
@@ -147,37 +147,37 @@ def submitted():
 
         subs = Subscribers.query.order_by(Subscribers.id).all()
 
-        try:
-            updateNotion(new_sub.id,new_sub.email)
-        except:
-            "notion failed"
+        # try:
+        #     updateNotion(new_sub.id,new_sub.email)
+        # except:
+        #     "notion failed"
 
         return render_template('submitted.html', subs=subs)
     except:
         "there was an issue"
 
-def updateNotion(id,email):
-    new_row = collection_view.collection.add_row()
-    new_row.id = str(id)
-    new_row.email = str(email)
+# def updateNotion(id,email):
+#     new_row = collection_view.collection.add_row()
+#     new_row.id = str(id)
+#     new_row.email = str(email)
 
-def updateNotionMessages(id, firstname, lastname, email, message):
-    new_row = messages_view.collection.add_row()
-    new_row.id = str(id)
-    new_row.firstname = str(firstname)
-    new_row.lastname = str(lastname)
-    new_row.email = str(email)
-    new_row.message = str(message)
+# def updateNotionMessages(id, firstname, lastname, email, message):
+#     new_row = messages_view.collection.add_row()
+#     new_row.id = str(id)
+#     new_row.firstname = str(firstname)
+#     new_row.lastname = str(lastname)
+#     new_row.email = str(email)
+#     new_row.message = str(message)
 
-def updateNotionApplications(id, firstname, lastname, email, profession, message, cv_url):
-    new_row = applications_view.collection.add_row()
-    new_row.id = str(id)
-    new_row.firstname = str(firstname)
-    new_row.lastname = str(lastname)
-    new_row.email = str(email)
-    new_row.profession = str(profession)
-    new_row.message = str(message)
-    new_row.cv = str(cv_url)
+# def updateNotionApplications(id, firstname, lastname, email, profession, message, cv_url):
+#     new_row = applications_view.collection.add_row()
+#     new_row.id = str(id)
+#     new_row.firstname = str(firstname)
+#     new_row.lastname = str(lastname)
+#     new_row.email = str(email)
+#     new_row.profession = str(profession)
+#     new_row.message = str(message)
+#     new_row.cv = str(cv_url)
 
 @app.route('/sign_s3/')
 def sign_s3():
