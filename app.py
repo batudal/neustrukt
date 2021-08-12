@@ -6,8 +6,18 @@ import boto3
 from werkzeug.utils import secure_filename
 import json
 from flask_cors import CORS, cross_origin
+from flask_mail import Mail, Message
+ 
 
 app = Flask(__name__)
+
+app.config['MAIL_SERVER']='smtp.office365.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'info@neustrukt.com'
+app.config['MAIL_PASSWORD'] = 'DWqia206'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+mail = Mail(app)
 
 CORS(app)
 
@@ -104,6 +114,9 @@ def index():
 
 @app.route('/team')
 def team():
+    # msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = ['batudal@gmail.com'])
+    # msg.html = render_template('welcome_message.html')
+    # mail.send(msg)
     return render_template('team.html')
 
 @app.route('/contact', methods=['GET','POST'])
@@ -189,6 +202,10 @@ def submitted():
         return redirect('/')
     except:
         "there was an issue"
+
+@app.route('/blog', methods=['GET'])
+def blog_redirect():
+    return redirect('https://neustrukt.medium.com/')
 
 # def updateNotion(id,email):
 #     new_row = collection_view.collection.add_row()
