@@ -70,9 +70,9 @@ class Popups(db.Model):
     img_source = db.Column(db.String(1024), nullable=False)
 
 def initiatePopups():
-    store = Popups(type="store", header="Store is opening soon.", paragraph="Be first one to know when our online store is open.", img_source= "")
-    designer = Popups(type="designer", header="Design with future in mind.", paragraph="Be first one to know when NeuLab platform becomes online.", img_source= "")
-    developer = Popups(type="developer", header="Let's develop together.", paragraph="Leverage your projects with precisely manufactured modules.", img_source= "") 
+    store = Popups(type="store", header="Store is opening soon.", paragraph="Be first one to know when our online store is open.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-store.png")
+    designer = Popups(type="designer", header="Design with future in mind.", paragraph="Be first one to know when NeuLab platform becomes online.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-designer.png")
+    developer = Popups(type="developer", header="Let's develop together.", paragraph="Leverage your projects with precisely manufactured modules.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-developer.png") 
 
     try:
         db.session.add(store)
@@ -82,6 +82,8 @@ def initiatePopups():
 
     except:
         "Couldn't initiate Popups db."
+
+initiatePopups()
 
 popup_header = ""
 popup_paragraph = ""
