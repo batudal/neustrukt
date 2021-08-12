@@ -35,6 +35,38 @@
   <script src="{{ url_for('static', filename='js/plugins.js') }}" defer> </script>
   <script src="{{ url_for('static', filename='js/main.js') }}" defer> </script>
 
+  <div class="popup-bg" id="popup-bg"></div>
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <h1>Store is opening soon.</h1>
+        <p>Be first one to know when our online store is open.</p>
+        <input type="email" name="email" id="email" placeholder="Email" required="required" />
+        <button type="submit">Notify me</button>
+      </div>
+      <div class="popup-img"></div>
+    </div>
+    <div class="popup-bg" id="popup-bg"></div>
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <h1>Store is opening soon.</h1>
+        <p>Be first one to know when our online store is open.</p>
+        <input type="email" name="email" id="email" placeholder="Email" required="required" />
+        <button type="submit">Notify me</button>
+      </div>
+      <div class="popup-img"></div>
+    </div>
+    <div class="popup-bg" id="popup-bg"></div>
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <h1>Store is opening soon.</h1>
+        <p>Be first one to know when our online store is open.</p>
+        <input type="email" name="email" id="email" placeholder="Email" required="required" />
+        <button type="submit">Notify me</button>
+      </div>
+      <div class="popup-img"></div>
+    </div>
+  
+
   <div class="navigation-bar">
     <div class="logo">
         <a href="{{ url_for('index') }}">
@@ -43,8 +75,9 @@
     </div>
     <div class="menu-container">
       <div class="menu">
-        <div class="menu-item menu-item-1">
-          <a href="{{ url_for('store') }}"><h3>Store</h3></a>
+        <div class="menu-item menu-item-1" id="store-button" style="cursor: pointer">
+          <!-- <a href="{{ url_for('store') }}"><h3>Store</h3></a> -->
+          <h3 >Store</h3>
         </div>
         <div class="menu-item menu-item-2">
           <a href="{{ url_for('contact') }}"><h3>Contact</h3></a>
@@ -100,6 +133,67 @@
           });
       });
   </script>
+    <script>
+      // window.onload = function(){
+      //    var popup = document.getElementById('popup');
+      //    var popup_bg = document.getElementById('popup-bg');
+      //    document.onclick = function(e){
+      //       if(e.target.id == 'popup_bg'){
+      //          popup_bg.style.display = 'none';
+      //          popup.style.display = 'none';
+      //       }
+      //       // if(e.target.id !== 'popup'){
+      //       //    popup_bg.style.display = 'none';
+      //       //    popup.style.display = 'none';
+      //       // }
+      //    };
+      // };
+
+
+
+
+  //     const popup = document.getElementById("popup");
+  //     const popup_bg = document.getElementById("popup-bg");
+  //     const store_button = document.getElementById("store-button");
+  
+  //     popup_bg.onclick = function () {
+  //     if (popup.style.display !== "none") {
+  //       popup.style.display = "none";
+  //       popup_bg.style.display= "none";
+  //     }
+
+  //     store_button.onclick = function () {
+  //       popup.style.display = "grid";
+  //       popup_bg.style.display= "flex";}
+      
+  // };
+    const store_button = document.getElementById('store-button');
+    const popup = document.getElementById("popup");
+    const popup_bg = document.getElementById("popup-bg");   
+
+    store_button.addEventListener('click', () => {
+      popup.style.display = 'grid';
+      popup_bg.style.display = 'flex';
+    });
+
+    popup_bg.addEventListener('click', () => {
+      if (popup.style.display == "grid"){
+        popup.style.display = "none";
+        popup_bg.style.display = "none";
+      }
+    })
+        $(function() {
+          $('#store-button').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/popup',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+   </script>
 
 </body>
 

@@ -497,6 +497,90 @@ input:-khtml-autofill {
   -khtml-box-shadow: 0 0 0px 1000px white inset;
 } */
 
+.popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  /* margin: 0 auto; */
+
+  
+  height: 500px;
+  width: 1000px;
+  background-color: var(--white);
+  z-index: 901;
+  /* margin:auto auto; */
+  border-radius: 20px;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+}
+
+.popup-bg{
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 900;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.popup-content{
+  width: 500px;
+  height: 100%;
+  grid-column: 1;
+  display:grid;
+  grid-template-rows: 87px 88px 20px 62px 40px 48px 20px 48px 87px;
+
+}
+
+.popup-content > h1 {
+  grid-row: 2;
+  width: 300px;
+  text-align: left;
+  margin-left: 80px;
+  font-size: 36px;
+}
+
+.popup-content > p{
+  grid-row: 4;
+  width: 300px;
+  text-align: left;
+  margin-left: 80px;
+  padding: 0px;
+}
+
+.popup-content > input{
+  grid-row: 6;
+  margin-left: 80px;
+  width: 300px;
+}
+
+.popup-content > button{
+  grid-row: 8;
+  margin-left: 80px;
+  width: 300px;
+}
+
+
+
+.popup-img{
+  background: url(../img/popup-store.png) no-repeat center center;
+  grid-column: 2;
+  height: 100%;
+  width: 100%;
+
+  /* top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); */
+
+}
+
+
 button {
 
   /* remove default behavior */
