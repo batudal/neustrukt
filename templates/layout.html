@@ -37,35 +37,39 @@
 
   <div class="popup-bg" id="popup-bg"></div>
     <div class="popup" id="store-popup">
-      <form action="/submitted" method="POST"></form>
+      <form action="/submitted" method="POST">
         <div class="popup-content">
           <h1>Store is opening soon.</h1>
           <p>Be first one to know when our online store is open.</p>
-            <input type="hidden" id="popup-type" name="popup-type" value="store">
-            <input type="email" name="email" id="email" placeholder="Email" required="required" />
-            <button type="submit">Notify me</button>  
+          <input type="hidden" id="popup-type" name="popup-type" value="store">
+          <input type="email" name="email" id="email" placeholder="Email" required="required" />
+          <button type="submit">Notify me</button>  
         </div>
       </form>
       <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-store.png") no-repeat center center;'></div>
     </div>
-    <div class="popup-bg" id="popup-bg"></div>
     <div class="popup" id="designer-popup">
-      <div class="popup-content">
-        <h1>Design with future in mind.</h1>
-        <p>Be first one to know when NeuLab platform becomes online.</p>
-        <input type="email" name="email" id="email" placeholder="Email" required="required" />
-        <button type="submit">Notify me</button>
-      </div>
+      <form action="/submitted" method="POST">
+        <div class="popup-content">
+          <h1>Design with future in mind.</h1>
+          <p>Be first one to know when NeuLab platform becomes online.</p>
+          <input type="hidden" id="popup-type" name="popup-type" value="designer">
+          <input type="email" name="email" id="email" placeholder="Email" required="required" />
+          <button type="submit">Notify me</button>
+        </div>
+      </form>
       <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-designer.png") no-repeat center center;'></div>
     </div>
-    <div class="popup-bg" id="popup-bg"></div>
     <div class="popup" id="developer-popup">
-      <div class="popup-content">
-        <h1>Let's develop together.</h1>
-        <p>Leverage your projects with precisely manufactured modules.</p>
-        <input type="email" name="email" id="email" placeholder="Email" required="required" />
-        <button type="submit">Notify me</button>
-      </div>
+      <form action="/submitted" method="POST">
+        <div class="popup-content">
+          <h1>Let's develop together.</h1>
+          <p>Leverage your projects with precisely manufactured modules.</p>
+          <input type="hidden" id="popup-type" name="popup-type" value="developer">
+          <input type="email" name="email" id="email" placeholder="Email" required="required" />
+          <button type="submit">Notify me</button>
+        </div>
+      </form>
       <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-developer.png") no-repeat center center;'></div>
     </div>
 

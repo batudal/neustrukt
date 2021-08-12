@@ -181,14 +181,12 @@ def submitted():
         db.session.add(new_sub)
         db.session.commit()
 
-        subs = Subscribers.query.order_by(Subscribers.id).all()
-
         # try:
         #     updateNotion(new_sub.id,new_sub.email)
         # except:
         #     "notion failed"
 
-        return render_template('submitted.html', subs=subs)
+        return redirect('/')
     except:
         "there was an issue"
 
