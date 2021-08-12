@@ -36,36 +36,38 @@
   <script src="{{ url_for('static', filename='js/main.js') }}" defer> </script>
 
   <div class="popup-bg" id="popup-bg"></div>
-    <div class="popup" id="popup">
-      <div class="popup-content">
-        <h1>Store is opening soon.</h1>
-        <p>Be first one to know when our online store is open.</p>
-        <input type="email" name="email" id="email" placeholder="Email" required="required" />
-        <button type="submit">Notify me</button>
-      </div>
-      <div class="popup-img"></div>
+    <div class="popup" id="store-popup">
+      <form action="/submitted" method="POST"></form>
+        <div class="popup-content">
+          <h1>Store is opening soon.</h1>
+          <p>Be first one to know when our online store is open.</p>
+            <input type="hidden" id="popup-type" name="popup-type" value="store">
+            <input type="email" name="email" id="email" placeholder="Email" required="required" />
+            <button type="submit">Notify me</button>  
+        </div>
+      </form>
+      <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-store.png") no-repeat center center;'></div>
     </div>
     <div class="popup-bg" id="popup-bg"></div>
-    <div class="popup" id="popup">
+    <div class="popup" id="designer-popup">
       <div class="popup-content">
-        <h1>Store is opening soon.</h1>
-        <p>Be first one to know when our online store is open.</p>
+        <h1>Design with future in mind.</h1>
+        <p>Be first one to know when NeuLab platform becomes online.</p>
         <input type="email" name="email" id="email" placeholder="Email" required="required" />
         <button type="submit">Notify me</button>
       </div>
-      <div class="popup-img"></div>
+      <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-designer.png") no-repeat center center;'></div>
     </div>
     <div class="popup-bg" id="popup-bg"></div>
-    <div class="popup" id="popup">
+    <div class="popup" id="developer-popup">
       <div class="popup-content">
-        <h1>Store is opening soon.</h1>
-        <p>Be first one to know when our online store is open.</p>
+        <h1>Let's develop together.</h1>
+        <p>Leverage your projects with precisely manufactured modules.</p>
         <input type="email" name="email" id="email" placeholder="Email" required="required" />
         <button type="submit">Notify me</button>
       </div>
-      <div class="popup-img"></div>
+      <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-developer.png") no-repeat center center;'></div>
     </div>
-  
 
   <div class="navigation-bar">
     <div class="logo">
@@ -76,7 +78,6 @@
     <div class="menu-container">
       <div class="menu">
         <div class="menu-item menu-item-1" id="store-button" style="cursor: pointer">
-          <!-- <a href="{{ url_for('store') }}"><h3>Store</h3></a> -->
           <h3 >Store</h3>
         </div>
         <div class="menu-item menu-item-2">
@@ -168,30 +169,43 @@
       
   // };
     const store_button = document.getElementById('store-button');
-    const popup = document.getElementById("popup");
+    const category_store_button = document.getElementById('card-link-container-1')
+    const category_designer_button = document.getElementById('card-link-container-2')
+    const category_developer_button = document.getElementById('card-link-container-3')
+
+    const store_popup = document.getElementById("store-popup");
+    const designer_popup = document.getElementById("designer-popup");
+    const developer_popup = document.getElementById("developer-popup");
     const popup_bg = document.getElementById("popup-bg");   
 
+    category_store_button.addEventListener('click', () =>{
+      store_popup.style.display = 'grid';
+      popup_bg.style.display = 'flex';
+    })
+
+    category_designer_button.addEventListener('click', () =>{
+      designer_popup.style.display = 'grid';
+      popup_bg.style.display = 'flex';
+    })
+
+    category_developer_button.addEventListener('click', () =>{
+      developer_popup.style.display = 'grid';
+      popup_bg.style.display = 'flex';
+    })
+
     store_button.addEventListener('click', () => {
-      popup.style.display = 'grid';
+      store_popup.style.display = 'grid';
       popup_bg.style.display = 'flex';
     });
 
     popup_bg.addEventListener('click', () => {
-      if (popup.style.display == "grid"){
-        popup.style.display = "none";
+      
+        store_popup.style.display = "none";
+        designer_popup.style.display = "none";
+        developer_popup.style.display = "none";
         popup_bg.style.display = "none";
-      }
+      
     })
-        $(function() {
-          $('#store-button').on('click', function(e) {
-            e.preventDefault()
-            $.getJSON('/popup',
-                function(data) {
-              //do nothing
-            });
-            return false;
-          });
-        });
 
    </script>
 

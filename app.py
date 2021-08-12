@@ -61,42 +61,42 @@ class Applications(db.Model):
     cv_url = db.Column(db.String(1024), nullable=False)
     message = db.Column(db.String(1024), nullable=False)
 
-class Popups(db.Model):
-    __tablename__ = 'popups'
-    id = db.Column(db.Integer, primary_key = True)
-    type = db.Column(db.String(120), nullable=False)
-    header = db.Column(db.String(120), nullable=False)
-    paragraph = db.Column(db.String(1024), nullable=False)
-    img_source = db.Column(db.String(1024), nullable=False)
+# class Popups(db.Model):
+#     __tablename__ = 'popups'
+#     id = db.Column(db.Integer, primary_key = True)
+#     type = db.Column(db.String(120), nullable=False)
+#     header = db.Column(db.String(120), nullable=False)
+#     paragraph = db.Column(db.String(1024), nullable=False)
+#     img_source = db.Column(db.String(1024), nullable=False)
 
-def initiatePopups():
-    store = Popups(type="store", header="Store is opening soon.", paragraph="Be first one to know when our online store is open.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-store.png")
-    designer = Popups(type="designer", header="Design with future in mind.", paragraph="Be first one to know when NeuLab platform becomes online.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-designer.png")
-    developer = Popups(type="developer", header="Let's develop together.", paragraph="Leverage your projects with precisely manufactured modules.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-developer.png") 
+# def initiatePopups():
+#     store = Popups(type="store", header="Store is opening soon.", paragraph="Be first one to know when our online store is open.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-store.png")
+#     designer = Popups(type="designer", header="Design with future in mind.", paragraph="Be first one to know when NeuLab platform becomes online.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-designer.png")
+#     developer = Popups(type="developer", header="Let's develop together.", paragraph="Leverage your projects with precisely manufactured modules.", img_source= "https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-developer.png") 
 
-    try:
-        db.session.add(store)
-        db.session.add(designer)
-        db.session.add(developer)
-        db.session.commit()
+#     try:
+#         db.session.add(store)
+#         db.session.add(designer)
+#         db.session.add(developer)
+#         db.session.commit()
 
-    except:
-        "Couldn't initiate Popups db."
+#     except:
+#         "Couldn't initiate Popups db."
 
-initiatePopups()
+# initiatePopups()
 
-popup_header = ""
-popup_paragraph = ""
-popup_img_source = ""
+# popup_header = ""
+# popup_paragraph = ""
+# popup_img_source = ""
 
-@app.route('/popup')
-def popup_router():
-    popup_type = request.args.get('type')
-    content = Popups.query.filter_by(type=popup_type).all()
+# @app.route('/popup')
+# def popup_router():
+#     popup_type = request.args.get('type')
+#     content = Popups.query.filter_by(type=popup_type).all()
 
-    popup_header = content.header
-    popup_paragraph = content.paragraph
-    popup_img_source = content.img_source
+#     popup_header = content.header
+#     popup_paragraph = content.paragraph
+#     popup_img_source = content.img_source
 
 @app.route('/')
 def index():
@@ -105,10 +105,6 @@ def index():
 @app.route('/team')
 def team():
     return render_template('team.html')
-
-@app.route('/store')
-def store():
-    return render_template('store.html')
 
 @app.route('/contact', methods=['GET','POST'])
 def contact():
@@ -178,7 +174,8 @@ def mission():
 def submitted():
 
     subs_email = request.form['email']
-    new_sub = Subscribers(email=subs_email)
+    subs_source = request.form['popup-type']
+    new_sub = Subscribers(email=subs_email, source=subs_source)
 
     try:
         db.session.add(new_sub)
