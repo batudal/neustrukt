@@ -146,7 +146,7 @@ def unsubscribe(token):
                 db.session.delete(sub)
         db.session.commit()
         print('committed')
-        return render_template('team.html')
+        return render_template('unsubscribed.html')
     except:
         "delete failed"
     

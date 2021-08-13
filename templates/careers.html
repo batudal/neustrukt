@@ -100,6 +100,24 @@
     });
     
 </script>
+<script>
+    const store_button = document.getElementById('store-button');
+
+    const store_popup = document.getElementById("store-popup");
+    const popup_bg = document.getElementById("popup-bg");   
+
+    store_button.addEventListener('click', () => {
+      store_popup.style.display = 'grid';
+      popup_bg.style.display = 'flex';
+    });
+
+    popup_bg.addEventListener('click', () => {
+      
+        store_popup.style.display = "none";
+        popup_bg.style.display = "none";
+      
+    })
+  </script>
 
 <!-- <script>
     (function() {
