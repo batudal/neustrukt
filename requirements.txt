@@ -1,4 +1,5 @@
 beautifulsoup4==4.9.3
+blinker==1.4
 boto3==1.18.9
 botocore==1.21.9
 bs4==0.0.1
@@ -12,6 +13,7 @@ dictdiffer==0.8.1
 dominate==2.5.2
 Flask==2.0.1
 Flask-Cors==3.0.10
+Flask-Mail==0.9.1
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.0
 gunicorn==20.1.0

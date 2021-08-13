@@ -122,6 +122,7 @@ def index():
 
 @app.route('/unsubscribe/<token>')
 def unsubscribe(token):
+    #x
     s = URLSafeSerializer(SECRET_KEY, salt='unsubscribe')
 
     try:
