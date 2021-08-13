@@ -82,7 +82,7 @@
     <div class="menu-container">
       <div class="menu">
         <div class="menu-item menu-item-1" id="store-button" style="cursor: pointer">
-          <h3 >Store</h3>
+          <h3>Store</h3>
         </div>
         <div class="menu-item menu-item-2">
           <a href="{{ url_for('contact') }}"><h3>Contact</h3></a>
@@ -91,7 +91,7 @@
           <a href="{{ url_for('careers') }}"><h3>Careers</h3></a>
         </div>
         <div class="menu-item menu-item-4">
-          <a href="https://neustrukt.medium.com/"><h3>Blog</h3></a>
+          <a target="_blank" href="https://neustrukt.medium.com/"><h3>Blog</h3></a>
         </div>
         <div class="menu-item menu-item-5">
           <a href="{{ url_for('team') }}"><h3>Team</h3></a>
@@ -128,90 +128,7 @@
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 
-  <script>
-    $(document).ready(function() {
-        $("a.scrollLink").click(function(event) {
-            event.preventDefault();
-            $("html, body").animate({
-                scrollTop: $($(this).attr("href")).offset().top -100
-              }, 1500);
-          });
-      });
-  </script>
-    <script>
-      // window.onload = function(){
-      //    var popup = document.getElementById('popup');
-      //    var popup_bg = document.getElementById('popup-bg');
-      //    document.onclick = function(e){
-      //       if(e.target.id == 'popup_bg'){
-      //          popup_bg.style.display = 'none';
-      //          popup.style.display = 'none';
-      //       }
-      //       // if(e.target.id !== 'popup'){
-      //       //    popup_bg.style.display = 'none';
-      //       //    popup.style.display = 'none';
-      //       // }
-      //    };
-      // };
 
-
-
-
-  //     const popup = document.getElementById("popup");
-  //     const popup_bg = document.getElementById("popup-bg");
-  //     const store_button = document.getElementById("store-button");
-  
-  //     popup_bg.onclick = function () {
-  //     if (popup.style.display !== "none") {
-  //       popup.style.display = "none";
-  //       popup_bg.style.display= "none";
-  //     }
-
-  //     store_button.onclick = function () {
-  //       popup.style.display = "grid";
-  //       popup_bg.style.display= "flex";}
-      
-  // };
-    const store_button = document.getElementById('store-button');
-    const category_store_button = document.getElementById('card-link-container-1')
-    const category_designer_button = document.getElementById('card-link-container-2')
-    const category_developer_button = document.getElementById('card-link-container-3')
-
-    const store_popup = document.getElementById("store-popup");
-    const designer_popup = document.getElementById("designer-popup");
-    const developer_popup = document.getElementById("developer-popup");
-    const popup_bg = document.getElementById("popup-bg");   
-
-    category_store_button.addEventListener('click', () =>{
-      store_popup.style.display = 'grid';
-      popup_bg.style.display = 'flex';
-    })
-
-    category_designer_button.addEventListener('click', () =>{
-      designer_popup.style.display = 'grid';
-      popup_bg.style.display = 'flex';
-    })
-
-    category_developer_button.addEventListener('click', () =>{
-      developer_popup.style.display = 'grid';
-      popup_bg.style.display = 'flex';
-    })
-
-    store_button.addEventListener('click', () => {
-      store_popup.style.display = 'grid';
-      popup_bg.style.display = 'flex';
-    });
-
-    popup_bg.addEventListener('click', () => {
-      
-        store_popup.style.display = "none";
-        designer_popup.style.display = "none";
-        developer_popup.style.display = "none";
-        popup_bg.style.display = "none";
-      
-    })
-
-   </script>
 
 </body>
 

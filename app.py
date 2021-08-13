@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 # from notion.client import NotionClient
 import os
@@ -12,7 +12,7 @@ from itsdangerous import URLSafeSerializer, BadData
 
 app = Flask(__name__)
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+app.secret_key = os.environ.get('SECRET_KEY')
 
 # mail config
 MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
@@ -120,29 +120,45 @@ class Applications(db.Model):
 def index():
     return render_template('index.html')
 
+# @app.route('/create/<first_name>/<last_name>')
+# def create(first_name=None, last_name=None):
+#   return 'Hello ' + first_name + ',' + last_name
+
+
 @app.route('/unsubscribe/<token>')
 def unsubscribe(token):
     #x
-    s = URLSafeSerializer(SECRET_KEY, salt='unsubscribe')
+    s = URLSafeSerializer(app.secret_key, salt='unsubscribe')
+
+    print(token)
 
     try:
         email = s.loads(token)
+        print(email)
     except BadData:
         "token not loaded"
     try:
-        db.execute('delete from subscribers where email = ?'[email])
-        db.commit()
+        # db.execute('delete from subscribers where email={}'.format(email))
+        subs_to_delete = Subscribers.query.filter_by(email=email).all()
+
+        if subs_to_delete:
+            for sub in subs_to_delete:
+                db.session.delete(sub)
+        db.session.commit()
+        print('committed')
         return render_template('team.html')
     except:
         "delete failed"
     
 
 def send_email(address):
-    s = URLSafeSerializer(SECRET_KEY, salt='unsubscribe')
+    s = URLSafeSerializer(app.secret_key, salt='unsubscribe')
 
     token = s.dumps(address)
-    # url = url_for('unsubscribe', token=token) ???
-    url = "https://www.neustrukt.de/unsubscribe/{}".format(token)
+    url = url_for('unsubscribe', token=token)
+    url = "http://127.0.0.1:5000" + url
+
+    # url = "http://127.0.0.1:5000/unsubscribe/{}".format(token)
 
     msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = ['batudal@gmail.com'])
     msg.html = render_template('welcome_message.html', tokenlink=url)
@@ -151,7 +167,6 @@ def send_email(address):
 
 @app.route('/team')
 def team():
-
     return render_template('team.html')
 
 @app.route('/contact', methods=['GET','POST'])
