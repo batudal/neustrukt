@@ -160,7 +160,7 @@ def send_email(address):
 
     # url = "http://127.0.0.1:5000/unsubscribe/{}".format(token)
 
-    msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = address)
+    msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = [address])
     msg.html = render_template('welcome_message.html', tokenlink=url)
     mail.send(msg)
 
