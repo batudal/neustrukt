@@ -132,7 +132,7 @@ def unsubscribe(token):
     try:
         db.execute('delete from subscribers where email = ?'[email])
         db.commit()
-        return "delete successful"
+        return render_template('team.html')
     except:
         "delete failed"
     
@@ -141,7 +141,7 @@ def send_email(address):
     s = URLSafeSerializer(SECRET_KEY, salt='unsubscribe')
 
     token = s.dumps(address)
-    # url = url_for('unsubscribe', token=token)
+    # url = url_for('unsubscribe', token=token) ???
     url = "https://www.neustrukt.de/unsubscribe/{}".format(token)
 
     msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = ['batudal@gmail.com'])
