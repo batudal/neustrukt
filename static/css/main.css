@@ -611,6 +611,12 @@ button {
 
 }
 
+#team-section-subheader > p{
+  width: 437px;
+  text-align: center;
+  padding: 0px;
+}
+
 #team-cards-container{
   grid-row: 8;
   grid-column: 2;

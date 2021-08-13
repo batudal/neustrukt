@@ -7,26 +7,34 @@ from werkzeug.utils import secure_filename
 import json
 from flask_cors import CORS, cross_origin
 from flask_mail import Mail, Message
- 
+from itsdangerous import URLSafeSerializer, BadData
+
 
 app = Flask(__name__)
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# mail config
+MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_SERVER']='smtp.office365.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = 'info@neustrukt.com'
-app.config['MAIL_PASSWORD'] = 'DWqia206'
+app.config['MAIL_PASSWORD'] = MAIL_PASSWORD
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
 
+# cors config
 CORS(app)
-
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+# flask config
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"].replace('postgres://', 'postgresql://')
 
 db = SQLAlchemy(app)
 
+# open positions
 jobs = ['Architect', 'Interior Architect', 'Industrial Designer', 'Graphic Designer', 'Digital Marketer', 'Content Producer', 'Structural Engineer', 'Mechanical Engineer', 'Supply Chain Specialist']
 
 
@@ -112,11 +120,37 @@ class Applications(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/unsubscribe/<token>')
+def unsubscribe(token):
+    s = URLSafeSerializer(SECRET_KEY, salt='unsubscribe')
+
+    try:
+        email = s.loads(token)
+    except BadData:
+        "token not loaded"
+    try:
+        db.execute('delete from subscribers where email = ?'[email])
+        db.commit()
+        return "delete successful"
+    except:
+        "delete failed"
+    
+
+def send_email(address):
+    s = URLSafeSerializer(SECRET_KEY, salt='unsubscribe')
+
+    token = s.dumps(address)
+    # url = url_for('unsubscribe', token=token)
+    url = "https://www.neustrukt.de/unsubscribe/{}".format(token)
+
+    msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = ['batudal@gmail.com'])
+    msg.html = render_template('welcome_message.html', tokenlink=url)
+    mail.send(msg)
+
+
 @app.route('/team')
 def team():
-    # msg = Message('Welcome!', sender = 'info@neustrukt.com', recipients = ['batudal@gmail.com'])
-    # msg.html = render_template('welcome_message.html')
-    # mail.send(msg)
+
     return render_template('team.html')
 
 @app.route('/contact', methods=['GET','POST'])
@@ -189,6 +223,8 @@ def submitted():
     subs_email = request.form['email']
     subs_source = request.form['popup-type']
     new_sub = Subscribers(email=subs_email, source=subs_source)
+
+    send_email(address=subs_email)
 
     try:
         db.session.add(new_sub)

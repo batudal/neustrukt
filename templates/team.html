@@ -2,6 +2,15 @@
 
 {% block body %}
   <div id="team-container">
+    <div class="contact-section-h5-container">
+      <h5 style="width: 300px">WHO'S MAKING THIS HAPPEN?</h5>
+    </div>
+    <div class="contact-section-h1-container">
+        <h1>Neustrukt Team</h1>
+    </div>
+    <div class="contact-section-text-container" id="team-section-subheader">
+        <p>A group of people knew something was wrong and committed to do it properly. Meet the missionaries.</p>
+    </div>
     <div id="team-cards-container">
       <div class="team-card">
         <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_batu.png') }}" align=middle></div>
@@ -34,6 +43,9 @@
       </div>
       
     </div>
+  </div>
+  <div class="footer" id="contact-footer">
+    <div id="footer-img-container"></div>
   </div>
 
 {% endblock %}
