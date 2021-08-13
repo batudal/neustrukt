@@ -156,7 +156,7 @@ def send_email(address):
 
     token = s.dumps(address)
     url = url_for('unsubscribe', token=token)
-    url = "http://127.0.0.1:5000" + url
+    url = "https://www.neustrukt.de" + url
 
     # url = "http://127.0.0.1:5000/unsubscribe/{}".format(token)
 
