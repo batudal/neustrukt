@@ -21,6 +21,7 @@
 
   <meta name="theme-color" content="#fafafa">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
@@ -34,6 +35,13 @@
   <script src="{{ url_for('static', filename='js/vendor/modernizr-3.11.2.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/plugins.js') }}" defer> </script>
   <script src="{{ url_for('static', filename='js/main.js') }}" defer> </script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
+  <script>
+    function onSubmit(token) {
+      document.getElementById("contact-form").submit();
+    }
+  </script>
 
   <div class="popup-bg" id="popup-bg"></div>
     <div class="popup" id="store-popup">

@@ -13,7 +13,7 @@
         <p>We’re here to help and answer any question you might have. We look forward to hearing from you.</p>
     </div>
     
-    <form action="/contact" method="POST" class="contact-section-card-container">
+    <form action="/contact" method="POST" class="contact-section-card-container" id="contact-form">
         <div class="contact-card-name-container">
             <div class="contact-card-firstname">
                 <h5 class="is-black">FIRST NAME<span>*</span></h5>
@@ -45,7 +45,10 @@
             </div>
         </div>
         <div class="contact-card-button-container">
-            <button type="submit">Send Message</button>
+            <button class="g-recaptcha" 
+                    data-sitekey="{{ site_key }}" 
+                    data-callback='onSubmit' 
+                    data-action='submit'>Send Message</button>
         </div>
     </form>    
 </div>
