@@ -13,7 +13,6 @@ app = Flask(__name__)
 # recaptcha config
 RECAPTCHA_SITE_KEY = os.environ.get('RECAPTCHA_SITE_KEY')
 RECAPTCHA_SECRET_KEY = os.environ.get('RECAPTCHA_SECRET_KEY')
-recaptcha = ReCaptcha(app=app)
 
 # serializer
 app.secret_key = os.environ.get('SECRET_KEY')
