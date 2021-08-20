@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='ornaments/icon.png') }}">
   <link rel="icon" href="{{ url_for('static', filename='ornaments/favicon.ico') }}" type="image/*" />
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900" type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900" type='text/css'>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
@@ -39,43 +39,52 @@
 
   <script>
     function onSubmit(token) {
-      document.getElementById("contact-form").submit();
+      document.getElementById("recaptcha-form").submit();
     }
   </script>
 
   <div class="popup-bg" id="popup-bg"></div>
     <div class="popup" id="store-popup">
-      <form action="/submitted" method="POST">
+      <form action="/submitted" method="POST" id="recaptcha-form">
         <div class="popup-content">
           <h1>Store is opening soon.</h1>
           <p>Be first one to know when our online store is open.</p>
           <input type="hidden" id="popup-type" name="popup-type" value="store">
           <input type="email" name="email" id="email" placeholder="Email" required="required" />
-          <button type="submit">Notify me</button>  
+          <button class="g-recaptcha" 
+                  data-sitekey="{{ site_key }}" 
+                  data-callback='onSubmit' 
+                  data-action='submit'>Notify me</button>  
         </div>
       </form>
       <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-store.png") no-repeat center center;'></div>
     </div>
     <div class="popup" id="designer-popup">
-      <form action="/submitted" method="POST">
+      <form action="/submitted" method="POST" id="recaptcha-form">
         <div class="popup-content">
           <h1>Design with future in mind.</h1>
           <p>Be first one to know when NeuLab platform becomes online.</p>
           <input type="hidden" id="popup-type" name="popup-type" value="designer">
           <input type="email" name="email" id="email" placeholder="Email" required="required" />
-          <button type="submit">Notify me</button>
+          <button class="g-recaptcha" 
+                  data-sitekey="{{ site_key }}" 
+                  data-callback='onSubmit' 
+                  data-action='submit'>Notify me</button>
         </div>
       </form>
       <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-designer.png") no-repeat center center;'></div>
     </div>
     <div class="popup" id="developer-popup">
-      <form action="/submitted" method="POST">
+      <form action="/submitted" method="POST" id="recaptcha-form">
         <div class="popup-content">
           <h1>Let's develop together.</h1>
           <p>Leverage your projects with precisely manufactured modules.</p>
           <input type="hidden" id="popup-type" name="popup-type" value="developer">
           <input type="email" name="email" id="email" placeholder="Email" required="required" />
-          <button type="submit">Notify me</button>
+          <button class="g-recaptcha" 
+                  data-sitekey="{{ site_key }}" 
+                  data-callback='onSubmit' 
+                  data-action='submit'>Notify me</button>
         </div>
       </form>
       <div class="popup-img" style='background: url("https://neustrukt-applications.s3.us-east-2.amazonaws.com/popup_images/popup-developer.png") no-repeat center center;'></div>
@@ -84,28 +93,31 @@
   <div class="navigation-bar">
     <div class="logo">
         <a href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='img/neulogo.png') }}" >
+            <img src="{{ url_for('static', filename='img/neustrukt-logo-1x.png') }}" >
         </a>
+    </div>
+    <div class="hamburger-button">
+      <img src="{{ url_for('static', filename='img/icons/hamburger.png') }}">
     </div>
     <div class="menu-container">
       <div class="menu">
         <div class="menu-item menu-item-1" id="store-button" style="cursor: pointer">
-          <h3>Store</h3>
+          <h5>Store</h5>
         </div>
         <div class="menu-item menu-item-2">
-          <a href="{{ url_for('contact') }}"><h3>Contact</h3></a>
+          <a href="{{ url_for('contact') }}"><h5>Contact</h5></a>
         </div>
         <div class="menu-item menu-item-3">
-          <a href="{{ url_for('careers') }}"><h3>Careers</h3></a>
+          <a href="{{ url_for('careers') }}"><h5>Careers</h5></a>
         </div>
         <div class="menu-item menu-item-4">
-          <a target="_blank" href="https://neustrukt.medium.com/"><h3>Blog</h3></a>
+          <a target="_blank" href="https://neustrukt.medium.com/"><h5>Blog</h5></a>
         </div>
         <div class="menu-item menu-item-5">
-          <a href="{{ url_for('team') }}"><h3>Team</h3></a>
+          <a href="{{ url_for('team') }}"><h5>Team</h5></a>
         </div>
         <div class="menu-item menu-item-6" >
-          <a href="{{ url_for('index') }}"><h3>Home</h3></a>
+          <a href="{{ url_for('index') }}"><h5>Home</h5></a>
         </div>
       </div>
     </div>

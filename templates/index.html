@@ -21,10 +21,10 @@
       <div class="scroll" id="scroll-1">
         <div class="card-text-container">
           <h1>Build <span>modular structures</span></h1>
-          <p>Every piece is a part of the system. Leveraging our digital design system <a href="./acm.html">ACM®</a>, we insist upon 
+          <p2>Every piece is a part of the system. Leveraging our digital design system <a href="./acm.html">ACM®</a>, we insist upon 
              a modular approach between all layers of the construction process. This brings us absolute detachability for 
              extended reuse, adaptability for embracing uncertainty, and scalability to adopt all lifestyle changes.
-          </p>
+          </p2>
         </div>
         <div id="card-1-animation-container">
           <div id="card-1-corner-1" class="card-1-corner"></div>
@@ -40,10 +40,10 @@
       <div class="scroll" id="scroll-2">
         <div class="card-text-container">
           <h1>Join <span>circular economy</span></h1>
-          <p>Earth and it's materials should belong to all of us. We meticulously design every component to be maintained, 
+          <p2>Earth and it's materials should belong to all of us. We meticulously design every component to be maintained, 
              reused, or processed individually. <br><br>Neustrukt houses will be taken care of diligently throughout it's lifetime 
              giving both the owner or the renter peace of mind.
-          </p>
+          </p2>
         </div>
         <div class="wholecube">
           <div class="c1 corner"></div>
@@ -59,9 +59,9 @@
       <div class="scroll" id="scroll-3">
         <div class="card-text-container">
           <h1>Create <span>smart spaces</span></h1>
-          <p>We believe smart home features should be about longevity and health, or in other words serving towards the inhabitants comfort. <br><br>Neustrukt houses 
+          <p2>We believe smart home features should be about longevity and health, or in other words serving towards the inhabitants comfort. <br><br>Neustrukt houses 
              will constantly observe and log data like air quality to provide unprecedented life standards.
-          </p>
+          </p2>
         </div>
         <div id="card-3-animation-container">
           <div id="square"></div>
@@ -71,9 +71,9 @@
       <div class="scroll" id="scroll-4">
         <div class="card-text-container">
           <h1>Design <span>your future</span></h1>
-          <p>We need radical changes on our view of construction and housing. We need more collaborations, regulations and 
+          <p2>We need radical changes on our view of construction and housing. We need more collaborations, regulations and 
              invidual effort for adoption. <br><br>Join <a href="https://discord.gg/SWF9rd3uVC">Neustrukt Discord Channel</a> and connect <br>with like-minded people now.
-          </p>
+          </p2>
         </div>
         <div id="card-4-bg">
           <img src="{{ url_for('static', filename='img/header_bg_right.png') }}">
@@ -88,7 +88,7 @@
         <div id="card-img-container-1"><img src="{{ url_for('static', filename='img/category_1.png') }}"></div>
         <div id="card-headline-container-1"><h2>Products</h2></div>
         <div id="card-paragraph-container-1">
-          <p>Neustrukt offers eco-friendly product line blended with versatile design and futuristic components.</p>
+          <p2>Neustrukt offers eco-friendly product line blended with versatile design and futuristic components.</p2>
         </div>
         <div id="card-link-container-1" style="cursor: pointer"><h4>Visit store</h4></div>
       </div>
@@ -96,7 +96,7 @@
         <div id="card-img-container-2"><img src="{{ url_for('static', filename='img/category_2.png') }}"></div>
         <div id="card-headline-container-2"><h2>Designers</h2></div>
         <div id="card-paragraph-container-2">
-          <p>Neustrukt's flexible building system is your new empty canvas to bring out your best work.</p>
+          <p2>Neustrukt's flexible building system is your new empty canvas to bring out your best work.</p2>
         </div>
         <div id="card-link-container-2" style="cursor: pointer"><h4>Join Neulab</h4></div>
       </div>
@@ -104,28 +104,31 @@
         <div id="card-img-container-3"><img src="{{ url_for('static', filename='img/category_3.png') }}"></div>
         <div id="card-headline-container-3"><h2>Developers</h2></div>
         <div id="card-paragraph-container-3">
-          <p>If you are a developer and want to transform your process to the next level with <a href="acm.html">ACM®.</a></p>
+          <p2>If you are a developer and want to transform your process to the next level with <a href="acm.html">ACM®.</a></p2>
         </div>
         <div id="card-link-container-3" style="cursor: pointer"><h4>Invest with us</h4></div>
       </div>
     </div>
   </div>
 
-  <div class="footer">
+  <!-- <div class="footer">
     <div id="footer-form-container">
       <h2>This is just the beginning. Don't miss out on our future updates. Stay <span>in the loop</span>.</h2>
-      <form action="/submitted" method="POST">
+      <form action="/submitted" method="POST" id="recaptcha-form">
         <input type="hidden" id="popup-type" name="popup-type" value="general">
         <div id="footer-form-item">
           <input type="email" name="email" id="email" placeholder="Please enter your email" required="required" />
         </div>
         <div id="footer-form-button">
-          <button type="submit">Subscribe</button>
+          <button class="g-recaptcha" 
+                  data-sitekey="{{ site_key }}" 
+                  data-callback='onSubmit' 
+                  data-action='submit'>Subscribe</button>
         </div>
       </form>
     </div>
     <div id="footer-img-container"></div>
-  </div>
+  </div> -->
   <script>
     $(document).ready(function() {
         $("a.scrollLink").click(function(event) {

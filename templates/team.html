@@ -2,51 +2,47 @@
 
 {% block body %}
   <div id="team-container">
-    <div class="contact-section-h5-container">
-      <h5 style="width: 300px">WHO'S MAKING THIS HAPPEN?</h5>
-    </div>
-    <div class="contact-section-h1-container">
-        <h1>Neustrukt Team</h1>
-    </div>
-    <div class="contact-section-text-container" id="team-section-subheader">
-        <p>A group of people knew something was wrong and committed to do it properly. Meet the missionaries.</p>
-    </div>
-    <div id="team-cards-container">
-      <div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_batu.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Batu Dal</h2></div>
-        <div id="team-card-title"><p>Project Sponsor</p></div>
-      </div><div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_ege.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Ege Çavuşoğlu</h2></div>
-        <div id="team-card-title"><p>Manager</p></div>
-      </div><div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_melissa.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Özüm Melissa Çetin</h2></div>
-        <div id="team-card-title"><p>Architect</p></div>
-      </div><div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_mert.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Mert Sayat</h2></div>
-        <div id="team-card-title"><p>Architect</p></div>
-      </div><div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_baris.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Barış Aytimur</h2></div>
-        <div id="team-card-title"><p>Civil Engineer</p></div>
-      </div><div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_setenay.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Setenay Yarıcı</h2></div>
-        <div id="team-card-title"><p>Industrial Designer</p></div>
-      </div><div class="team-card">
-        <div id="team-card-photo"><img src="{{ url_for('static', filename='img/photos/photo_merve.png') }}" align=middle></div>
-        <div id="team-card-name"><h2>Merve Felek</h2></div>
-        <div id="team-card-title"><p>Architect</p></div>
-      </div>
+      <h4 class="is-primary">WHO'S MAKING THIS HAPPEN?</h4>
+      <h1 style="margin-top: 20px;">Neustrukt Team</h1>
+      <p2 style="margin-top: 40px;">A group of people knew something was wrong and committed to do it properly. Meet the missionaries.</p2>
       
+    <div class="card-container-wrapper">
+      <div class="card-container">
+        <div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_batu.png') }}" align=middle>
+          <p2 id="member-name">Batu Dal</p2>
+          <h4 id="member-title">Project Sponsor</h4>
+        </div><div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_ege.png') }}" align=middle>
+          <p2 id="member-name">Ege Çavuşoğlu</p2>
+          <h4 id="member-title">Manager</h4>
+        </div><div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_melissa.png') }}" align=middle>
+          <p2 id="member-name">Özüm Melissa Çetin</p2>
+          <h4 id="member-title">Architect</h4>
+        </div><div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_mert.png') }}" align=middle>
+          <p2 id="member-name">Mert Sayat</p2>
+          <h4 id="member-title">Architect</h4>
+        </div><div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_baris.png') }}" align=middle>
+          <p2 id="member-name">Barış Aytimur</p2>
+          <h4 id="member-title">Civil Engineer</h4>
+        </div><div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_setenay.png') }}" align=middle>
+          <p2 id="member-name">Setenay Yarıcı</p2>
+          <h4 id="member-title">Industrial Designer</h4>
+        </div><div class="card-item">
+          <img src="{{ url_for('static', filename='img/photos/photo_merve.png') }}" align=middle>
+          <p2 id="member-name">Merve Felek</p2>
+          <h4 id="member-title">Architect</h4>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="footer" id="contact-footer">
+  <!-- <div class="footer" id="contact-footer">
     <div id="footer-img-container"></div>
-  </div>
+  </div> -->
   <script>
     const store_button = document.getElementById('store-button');
 

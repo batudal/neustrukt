@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 import os
 import boto3
@@ -7,6 +7,9 @@ import json
 from flask_cors import CORS, cross_origin
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeSerializer, BadData
+from functools import wraps
+import requests
+
 
 app = Flask(__name__)
 
@@ -70,9 +73,48 @@ class Applications(db.Model):
     message = db.Column(db.String(1024), nullable=False)
 
 
+def check_recaptcha(f):
+    """
+    Checks Google  reCAPTCHA.
+
+    :param f: view function
+    :return: Function
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        request.recaptcha_is_valid = None
+
+        print("check1")
+
+        if request.method == 'POST':
+            data = {
+                'secret': RECAPTCHA_SECRET_KEY,
+                'response': request.form.get('g-recaptcha-response'),
+                'remoteip': request.access_route[0]
+            }
+            r = requests.post(
+                "https://www.google.com/recaptcha/api/siteverify",
+                data=data
+            )
+            result = r.json()
+
+            print("check2")
+
+            if result['success']:
+                request.recaptcha_is_valid = True
+            else:
+                request.recaptcha_is_valid = False
+                flash('Invalid reCAPTCHA. Please try again.', 'error')
+
+        return f(*args, **kwargs)
+
+    return decorated_function
+
+
 @app.route('/')
+@check_recaptcha
 def index():
-    return render_template('index.html')
+    return render_template('index.html', site_key=RECAPTCHA_SITE_KEY)
 
 
 @app.route('/unsubscribe/<token>')
@@ -115,6 +157,7 @@ def team():
     return render_template('team.html')
 
 @app.route('/contact', methods=['GET','POST'])
+@check_recaptcha
 def contact():
 
     if request.method == 'GET':
@@ -124,23 +167,25 @@ def contact():
         users_lastname = request.form['lastname']
         users_email = request.form['email']
         users_message = request.form['message']
+        
+        if request.recaptcha_is_valid:   
+            try:
+                new_message = Messages(firstname=users_firstname, lastname=users_lastname, email=users_email, message=users_message)
+                db.session.add(new_message)
+                db.session.commit()
 
-        try:
-            new_message = Messages(firstname=users_firstname, lastname=users_lastname, email=users_email, message=users_message)
-            db.session.add(new_message)
-            db.session.commit()
-
-            return redirect('/')
-        except:
-            "DB commit failed."
+                return redirect('/')
+            except:
+                "DB commit failed."
 
 
 @app.route('/careers', methods=['GET','POST'])
 @cross_origin()
+@check_recaptcha
 def careers():
 
     if request.method == 'GET':
-        return render_template('careers.html', jobs=jobs)
+        return render_template('careers.html', jobs=jobs, site_key=RECAPTCHA_SITE_KEY)
     else:
         print(request.form)
  
@@ -151,21 +196,24 @@ def careers():
         users_cv = request.form['file-url']
         users_message = request.form['message']
 
-        new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message, cv_url=users_cv)
+        if request.recaptcha_is_valid:
+            try:
+                new_application = Applications(firstname=users_firstname, lastname=users_lastname, email=users_email, profession=users_profession, message=users_message, cv_url=users_cv)
+                db.session.add(new_application)
+                db.session.commit()
 
-        try:
-            db.session.add(new_application)
-            db.session.commit()
-
-            return redirect('/')
-        except:
-            "Problemss"
+                return redirect('/')
+            except:
+                return "Problemss"
+        else:
+            "captcha not valid"
 
 @app.route('/mission')
 def mission():
     return render_template('mission.html')
 
 @app.route('/submitted', methods=['POST'])
+@check_recaptcha
 def submitted():
 
     subs_email = request.form['email']
@@ -174,13 +222,16 @@ def submitted():
 
     send_email(address=subs_email)
 
-    try:
-        db.session.add(new_sub)
-        db.session.commit()
+    if request.recaptcha_is_valid:
+        try:
+            db.session.add(new_sub)
+            db.session.commit()
 
-        return redirect('/')
-    except:
-        "there was an issue"
+            return redirect('/')
+        except:
+            "there was an issue"
+    else:
+        "captcha not valid"
 
 @app.route('/blog', methods=['GET'])
 def blog_redirect():
@@ -215,6 +266,9 @@ def sign_s3():
     'data': presigned_post,
     'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
   })
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
