@@ -2,6 +2,7 @@
   --main-color: #0BBC6C;
   --main-dark: #132817;
   --black: #333333;
+  --gray: #E5E5E5;
   --light-gray: #f8f8f8;
   --white: #ffffff;
 }
@@ -83,7 +84,7 @@ p2{
 
 p3{
   font-size: 12px;
-  line-height: 20;
+  line-height: 20px;
   font-weight: 400;
 }
 
@@ -148,6 +149,78 @@ textarea{
   resize: none;
 }
 
+.divider{
+  max-width: 1400px;
+  height: 2px;
+  margin: auto;
+  margin-top: 160px;
+  background-color: var(--gray);
+}
+
+#footer-container-wrapper{
+  width: 100%;
+  height: 476px;
+  padding-top: 100px;
+}
+
+#footer-container{
+  max-width: 1000px;
+  height: 276px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#footer-left{
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer-input{
+  position: relative;
+  margin-top: 12px;
+}
+
+#footer-input > input{
+  width:320px;
+}
+
+#footer-input > img{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+#footer-social-title{
+  margin-top: 40px;
+}
+
+#footer-social-icons{
+  display:flex;
+  max-width: 200px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+#footer-copyright{
+  margin-top: 80px;
+}
+
+#footer-center{
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer-right{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
 
 .contact-section{
   width: 100%;
@@ -158,8 +231,6 @@ textarea{
   align-items: center;
   justify-content: center;
 }
-
-
 
 .is-black{
   color:var(--main-dark)
@@ -211,8 +282,6 @@ textarea{
   width: 380px;
   height: 273px;
 }
-
-
 
 .contact-section-h5-container{
   grid-row: 2;
@@ -643,7 +712,7 @@ button {
 
 #team-container > p2{
   margin: auto;
-  max-width: 300px;
+  max-width: 360px;
 }
 
 .card-container-wrapper{
@@ -665,7 +734,8 @@ button {
   width: 250px;
   background-color: #ffffff;
   margin: 0px;
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   flex-shrink: 1;
   display: grid;
   grid-template-rows: 200px 40px 32px 8px 20px;
