@@ -13,7 +13,6 @@ body {
   margin: 0;
   font-family: Inter !important;
   color: var(--black);
-
 }
 
 html {
@@ -43,7 +42,7 @@ h1 span, h2 span{
 h2{
   font-weight: 700px;
   font-size: 36px;
-  line-height: 52px;
+  line-height: 44px;
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
@@ -72,8 +71,9 @@ h5{
 
 p{
   font-size: 24px;
-  line-height: 44px;
+  line-height: 40px;
   font-weight: 400;
+  margin: 0px;
 }
 
 p2{
@@ -150,42 +150,48 @@ textarea{
 }
 
 .divider{
-  max-width: 1400px;
+  max-width: 880px;
   height: 2px;
   margin: auto;
-  margin-top: 160px;
-  background-color: var(--gray);
+  margin-top: 120px;
+  background-color: var(--light-gray);
 }
 
 #footer-container-wrapper{
   width: 100%;
   height: 476px;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 #footer-container{
-  max-width: 1000px;
-  height: 276px;
+  max-width: 880px;
+  height: 376px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 #footer-left{
   max-width: 320px;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;;
 }
 
 #footer-input{
   position: relative;
   margin-top: 12px;
+  max-width: 240px;
 }
 
 #footer-input > input{
-  width:320px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 #footer-input > img{
@@ -214,19 +220,25 @@ textarea{
   width: 100px;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 #footer-right{
   width: 300px;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .contact-section{
   width: 100%;
   height: 1142px;
   display: grid;
-  grid-template-rows: 60px 22px 20px 53px 40px 44px 100px 763px;
+  grid-template-rows: 60px 22px 20px 52px 40px 44px 100px 763px;
   grid-template-columns: 1fr 500px 1fr;
   align-items: center;
   justify-content: center;
@@ -283,12 +295,13 @@ textarea{
   height: 273px;
 }
 
-.contact-section-h5-container{
+.contact-section-h4-container{
   grid-row: 2;
   grid-column: 2;
   text-align: center;
   display: flex;
   justify-content: center;
+  color: var(--main-color)
 }
 
 .contact-section-h1-container{
@@ -413,9 +426,9 @@ textarea{
 
 .career-section{
   width: 100%;
-  height: 1142px;
+  height: 1342px;
   display: grid;
-  grid-template-rows: 60px 22px 20px 53px 40px 44px 100px 993px;
+  grid-template-rows: 60px 22px 20px 52px 40px 44px 100px 993px;
   grid-template-columns: 1fr 500px 1fr;
   align-items: center;
   justify-content: center;
@@ -542,7 +555,6 @@ textarea{
 .dropdown-content a:hover {
   background-color: var(--light-gray);
   font-weight: 700;
-
 }
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -639,7 +651,7 @@ input:-khtml-autofill {
 
 }
 
-.popup-content > h1 {
+.popup-content > h2 {
   grid-row: 2;
   width: 300px;
   text-align: left;
@@ -647,7 +659,7 @@ input:-khtml-autofill {
   font-size: 36px;
 }
 
-.popup-content > p{
+.popup-content > p2 {
   grid-row: 4;
   width: 300px;
   text-align: left;
@@ -705,7 +717,7 @@ button {
   display:flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
   justify-content: center;
   text-align: center;
 }
@@ -834,11 +846,20 @@ button {
   position:absolute;
   background-color: var(--white);
   border-radius: 20px;
-  padding: 40px;
+  padding: 50px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px 47px 133px 40px;
   box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* .category-card > h3,h4,p2,img{
+  padding: 10px;
+} */
+
+.category-card h4{
+  color: var(--main-color)
+
 }
 
 #category-card-1{
@@ -1171,6 +1192,10 @@ button {
   left: 200px;
   border-radius: 20px;
   box-shadow: 0px 0px 25px 10px rgba(33, 33, 33, 0.05);   
+}
+
+.scroll p2 {
+  padding: 10px;
 }
 
 

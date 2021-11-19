@@ -3,26 +3,26 @@
 {% block body %}
 
 <div class="contact-section">
-    <div class="contact-section-h5-container">
-        <h5>GOT A QUESTION?</h5>
+    <div class="contact-section-h4-container">
+        <h4>GOT A QUESTION?</h4>
     </div>
     <div class="contact-section-h1-container">
         <h1>Contact Neustrukt</h1>
     </div>
     <div class="contact-section-text-container">
-        <p>We’re here to help and answer any question you might have. We look forward to hearing from you.</p>
+        <p2>We’re here to help and answer any question you might have. We look forward to hearing from you.</p2>
     </div>
     
     <form action="/contact" method="POST" class="contact-section-card-container" id="recaptcha-form">
         <div class="contact-card-name-container">
             <div class="contact-card-firstname">
-                <h5 class="is-black">FIRST NAME<span>*</span></h5>
+                <h4 class="is-black">FIRST NAME<span>*</span></h5>
             </div>
             <div class="contact-card-firstname-input">
                 <input type="text" name="firstname" id="firstname" placeholder="" >
             </div>
             <div class="contact-card-lastname">
-                <h5 class="is-black">LAST NAME<span>*</span></h5>
+                <h4 class="is-black">LAST NAME<span>*</span></h5>
             </div>
             <div class="contact-card-lastname-input">
                 <input type="text" name="lastname" id="lastname" placeholder="" >
@@ -30,7 +30,7 @@
         </div>
         <div class="contact-card-email-container">
             <div class="contact-card-email">
-                <h5 class="is-black">EMAIL<span>*</span></h5>
+                <h4 class="is-black">EMAIL<span>*</span></h5>
             </div>
             <div class="contact-card-email-input">
                 <input type="email" name="email" id="email" placeholder="" >
@@ -38,7 +38,7 @@
         </div>
         <div class="contact-card-message-container">
             <div class="contact-card-message">
-                <h5 class="is-black">MESSAGE<span>*</span></h5>
+                <h4 class="is-black">MESSAGE<span>*</span></h5>
             </div>
             <div class="contact-card-message-input">
                 <textarea name="message" id="message" rows="10" cols="25"></textarea>
@@ -54,7 +54,7 @@
 </div>
 
 <div class="footer" id="contact-footer">
-    <div id="footer-img-container"></div>
+    <!-- <div id="footer-img-container"></div> -->
 </div>
 <script>
     const store_button = document.getElementById('store-button');
@@ -73,6 +73,6 @@
         popup_bg.style.display = "none";
       
     })
-  </script>
+</script>
 
 {% endblock %}
